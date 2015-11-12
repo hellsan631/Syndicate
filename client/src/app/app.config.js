@@ -13,11 +13,21 @@
       .state({
         name: 'main',
         url: '/main',
-        title: 'Praxus Front Page',
         views: {
           main: {
             templateUrl: 'app/views/main/main.html',
             controller: 'MainController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state({
+        name: 'forum',
+        url: '/forum',
+        views: {
+          main: {
+            templateUrl: 'app/views/forum/forum.html',
+            controller: 'ForumController',
             controllerAs: 'vm'
           }
         }

@@ -84,7 +84,12 @@ gulp.task('inject', function () {
 //Watches for changes in sass files
 gulp.task('watch', ['watch-sass'], function() {
 
-  return gulp.watch(config.sass.source, ['watch-sass']);
+  gulp.watch(config.sass.source, ['watch-sass']);
+	gulp.watch([
+    bowerFiles(),
+    config.inject.sources.app.js
+  ], ['inject']);
+	
 });
 
 //Builds our sass with burbon/neat

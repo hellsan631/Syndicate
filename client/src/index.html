@@ -1,7 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="app" ng-controller="AppController as main">
 <head>
-  <title>My index</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Syndicate</title>
+
+  <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
+
   <!-- bower:css -->
   <link rel="stylesheet" href="vendor/materialize/bin/materialize.css">
   <link rel="stylesheet" href="vendor/sweetalert/dist/sweetalert.css">
@@ -12,6 +22,8 @@
   <!-- endinject -->
 </head>
 <body>
+
+  <ui-view name="main"></ui-view>
 
   <!-- bower:js -->
   <script src="vendor/angular/angular.js"></script>
@@ -31,8 +43,10 @@
   <!-- endinject -->
 
   <!-- inject:js -->
-  <script src="app/services/lb-services.js"></script>
   <script src="app/app.module.js"></script>
+  <script src="app/views/main/main.controller.js"></script>
+  <script src="app/views/forum/forum.controller.js"></script>
+  <script src="app/services/lb-services.js"></script>
   <script src="app/app.controller.js"></script>
   <script src="app/app.config.js"></script>
   <!-- endinject -->
