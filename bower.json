@@ -1,0 +1,26 @@
+{
+  "name": "syndicate",
+  "version": "0.0.0",
+  "authors": [
+    "Mathew Kleppin <matkle414@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "Materialize": "materialize#~0.97.2",
+    "angular-animate": "~1.4.7",
+    "angular-resource": "~1.4.7",
+    "angular-redactor": "~1.1.5",
+    "angular-sanitize": "~1.4.7",
+    "angular-materialize": "*"
+  }
+}
