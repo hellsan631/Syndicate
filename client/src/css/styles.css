@@ -1,0 +1,13 @@
+/* _functions.scss */
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/*
+* Truncate Text
+*/
+/*
+* Animation
+*/

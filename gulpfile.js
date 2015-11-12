@@ -35,8 +35,8 @@ var onError = {
 // Variables
 // --------------------------------------------------------------------
 
-var vendorPath = 'client/src/vendor/';
-var sourcePath = 'client/src/';
+var sourcePath = './client/src/';
+var vendorPath = sourcePath + 'vendor/';
 
 var config = {
   sass: {
@@ -46,22 +46,6 @@ var config = {
   inject: {
     target: sourcePath + 'index.html',
     sources: {
-      vendor: {
-        css: [
-          vendorPath + 'Materialize/dist/css/materialize.css',
-        ],
-        js: [
-          vendorPath + 'jquery/dist/jquery.js',
-          vendorPath + 'Materialize/dist/js/materialize.js',
-          vendorPath + 'angular/angular.js',
-          vendorPath + 'angular-animate/angular-animate.js',
-          vendorPath + 'angular-materialize/src/angular-materialize.js',
-          vendorPath + 'angular-redactor/angular-redactor-9.x.js',
-          vendorPath + 'angular-resource/angular-resource.js',
-          vendorPath + 'angular-sanitize/angular-sanitize.js',
-          vendorPath + 'angular-ui-router/release/angular-ui-router.js'
-        ]
-      },
       app: {
         css: [
           sourcePath + 'css/styles.css'
@@ -80,24 +64,32 @@ var config = {
 // Tasks
 // --------------------------------------------------------------------
 
+//Default gulp task for dev purposes
+gulp.task('default', ['watch', 'inject'], function() {
+
+});
+
+//Injects all css/js files into our index.html src file
 gulp.task('inject', function () {
-  return gulp.src(inject.target)
-    .pipe(inject(gulp.src(bowerFiles(), {read: false}), {name: 'bower'}))
+
+  return gulp.src(config.inject.target)
+    .pipe(inject(gulp.src(bowerFiles(), {read: false}), {name: 'bower', relative: true}))
     .pipe(inject(es.merge(
-      gulp.src(inject.sources.app.css),
-      gulp.src(inject.sources.app.js).pipe(angularSort())
-    )))
+      gulp.src(config.inject.sources.app.css),
+      gulp.src(config.inject.sources.app.js).pipe(angularSort())
+    ), {relative: true}))
     .pipe(gulp.dest(sourcePath));
 });
 
+//Watches for changes in sass files
 gulp.task('watch', ['watch-sass'], function() {
 
-  //watch .scss files
   return gulp.watch(config.sass.source, ['watch-sass']);
-
 });
 
+//Builds our sass with burbon/neat
 gulp.task('watch-sass', function(){
+
   return gulp.src(config.sass.source)
     .pipe(plumber(onError))
     .pipe(sass({

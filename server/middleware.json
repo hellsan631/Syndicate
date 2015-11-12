@@ -22,7 +22,11 @@
       ]
     }
   },
-  "files": {},
+  "files": {
+    "serve-static": {
+      "params": "$!../client/src"
+    }
+  },
   "final": {
     "loopback#urlNotFound": {}
   },

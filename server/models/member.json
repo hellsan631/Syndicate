@@ -1,6 +1,6 @@
 {
-  "name": "Person",
-  "plural": "People",
+  "name": "Member",
+  "plural": "Members",
   "base": "User",
   "idInjection": true,
   "options": {
@@ -15,7 +15,7 @@
       "type": "string",
       "required": true
     },
-    "fullname": {
+    "username": {
       "type": "string"
     },
     "createdOn": {

@@ -13,9 +13,6 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "db"
-  },
   "AccessToken": {
     "dataSource": "db",
     "public": false
@@ -31,5 +28,14 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Member": {
+    "dataSource": "mongodb"
+  },
+  "Post": {
+    "dataSource": "mongodb"
+  },
+  "Topic": {
+    "dataSource": "mongodb"
   }
 }
