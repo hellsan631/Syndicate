@@ -7,6 +7,7 @@
       'ngTouch',
       'ui.router',
       'ui.materialize',
+      'LocalForageModule',
       'angular-redactor',
       'permission',
       'lbServices'

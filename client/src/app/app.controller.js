@@ -6,10 +6,16 @@
     .controller('AppController', AppController);
 
   AppController.$inject = [
-    '$rootScope'
+    '$rootScope', '$localForage', 'Member'
   ];
 
-  function AppController($rootScope){
+  function AppController($rootScope, $localForage, Member){
+    Member.getCurrent().$promise
+      .then(saveCurrentUser);
+
+    function saveCurrentUser(user) {
+      $localForage.setItem('currentUser', user);
+    }
 
   }
 

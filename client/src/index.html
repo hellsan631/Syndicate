@@ -25,6 +25,7 @@
 
   <ui-view name="main"></ui-view>
 
+  <script src="//localhost:35729/livereload.js"></script>
   <!-- bower:js -->
   <script src="vendor/angular/angular.js"></script>
   <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
@@ -37,18 +38,22 @@
   <script src="vendor/angular-touch/angular-touch.js"></script>
   <script src="vendor/sweetalert/dist/sweetalert.min.js"></script>
   <script src="vendor/angular-permission/dist/angular-permission.js"></script>
+  <script src="vendor/localforage/dist/localforage.js"></script>
   <script src="vendor/angular-redactor/angular-redactor.js"></script>
   <script src="vendor/angular-materialize/src/angular-materialize.js"></script>
   <script src="vendor/angular-moment/angular-moment.js"></script>
+  <script src="vendor/angular-localforage/dist/angular-localForage.js"></script>
   <!-- endinject -->
 
   <!-- inject:js -->
   <script src="app/app.module.js"></script>
-  <script src="app/views/main/main.controller.js"></script>
+  <script src="app/views/login/login.controller.js"></script>
   <script src="app/views/forum/forum.controller.js"></script>
+  <script src="app/views/blog/blog.controller.js"></script>
   <script src="app/services/lb-services.js"></script>
+  <script src="app/app.routes.js"></script>
+  <script src="app/app.permissions.js"></script>
   <script src="app/app.controller.js"></script>
-  <script src="app/app.config.js"></script>
   <!-- endinject -->
 </body>
 </html>
