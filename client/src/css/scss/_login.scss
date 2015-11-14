@@ -10,6 +10,10 @@
 
 .box-holder {
   position: relative;
+  width:100%;
+  max-width: 500px;
+  display:block;
+  margin: 0 auto;
 }
 
 .box {
@@ -334,8 +338,8 @@
 .material-button .shape,
 .alt-2 .shape {
    position: absolute;
-   top: 0;
-   right: 0;
+   top: 2%;
+   right: 2%;
    width: 100%;
    height: 100%;
 }

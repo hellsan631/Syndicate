@@ -12,6 +12,23 @@
   @include transform(translateY(-50%));
 }
 
+/*
+* Clearfix
+*/
+%clear-fix {
+  *zoom: 1;
+  &:after {
+    content: '';
+    display: table;
+    line-height: 0;
+    clear: both;
+  }
+}
+
+.clear-fix{
+  @extend %clear-fix;
+}
+
 @mixin calc($property, $expression) {
   #{$property}: -webkit-calc(#{$expression});
   #{$property}: -moz-calc(#{$expression});

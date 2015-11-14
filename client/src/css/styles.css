@@ -15,6 +15,17 @@ html {
   transform: translateY(-50%); }
 
 /*
+* Clearfix
+*/
+.clear-fix {
+  *zoom: 1; }
+  .clear-fix:after {
+    content: '';
+    display: table;
+    line-height: 0;
+    clear: both; }
+
+/*
 * Truncate Text
 */
 /*
@@ -30,7 +41,11 @@ html {
   height: 100%; }
 
 .box-holder {
-  position: relative; }
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 0 auto; }
 
 .box {
   position: relative;
@@ -313,10 +328,11 @@ html {
 .material-button .shape,
 .alt-2 .shape {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 2%;
+  right: 2%;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  }
 
 .material-button .shape:before,
 .alt-2 .shape:before,
