@@ -10,11 +10,14 @@
   ];
 
   function AppController($rootScope, $localForage, Member){
+    var _this = this;
+
     Member.getCurrent().$promise
       .then(saveCurrentUser);
 
     function saveCurrentUser(user) {
       $localForage.setItem('currentUser', user);
+      $rootScope.currentUser = user;
     }
 
   }

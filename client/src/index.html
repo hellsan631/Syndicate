@@ -12,6 +12,8 @@
     }
   </style>
 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <!-- bower:css -->
   <link rel="stylesheet" href="vendor/materialize/bin/materialize.css">
   <link rel="stylesheet" href="vendor/sweetalert/dist/sweetalert.css">
@@ -21,25 +23,27 @@
   <link rel="stylesheet" href="css/styles.css">
   <!-- endinject -->
 </head>
-<body>
+<body class="grey darken-4">
+
+  <top-menu user="$root.currentUser"></top-menu>
 
   <ui-view name="main"></ui-view>
 
   <script src="//localhost:35729/livereload.js"></script>
   <!-- bower:js -->
+  <script src="vendor/jquery/dist/jquery.js"></script>
   <script src="vendor/angular/angular.js"></script>
-  <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="vendor/angular-animate/angular-animate.js"></script>
   <script src="vendor/angular-resource/angular-resource.js"></script>
-  <script src="vendor/jquery/dist/jquery.js"></script>
   <script src="vendor/angular-sanitize/angular-sanitize.js"></script>
+  <script src="vendor/angular-touch/angular-touch.js"></script>
+  <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="vendor/angular-redactor/angular-redactor.js"></script>
   <script src="vendor/materialize/bin/materialize.js"></script>
   <script src="vendor/moment/moment.js"></script>
-  <script src="vendor/angular-touch/angular-touch.js"></script>
   <script src="vendor/sweetalert/dist/sweetalert.min.js"></script>
   <script src="vendor/angular-permission/dist/angular-permission.js"></script>
   <script src="vendor/localforage/dist/localforage.js"></script>
-  <script src="vendor/angular-redactor/angular-redactor.js"></script>
   <script src="vendor/angular-materialize/src/angular-materialize.js"></script>
   <script src="vendor/angular-moment/angular-moment.js"></script>
   <script src="vendor/angular-localforage/dist/angular-localForage.js"></script>
@@ -50,6 +54,8 @@
   <script src="app/views/login/login.controller.js"></script>
   <script src="app/views/forum/forum.controller.js"></script>
   <script src="app/views/blog/blog.controller.js"></script>
+  <script src="app/components/scramble/scramble.directive.js"></script>
+  <script src="app/components/menu/menu.directive.js"></script>
   <script src="app/services/lb-services.js"></script>
   <script src="app/app.routes.js"></script>
   <script src="app/app.permissions.js"></script>

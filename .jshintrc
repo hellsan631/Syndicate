@@ -22,6 +22,7 @@
     "Vivus": true,
     "Velocity": true,
     "$": true,
-    "swal": true
+    "swal": true,
+    "jQuery": true
   }
 }

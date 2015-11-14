@@ -1,0 +1,16 @@
+<nav class="red darken-2" ng-if="user">
+  <div class="nav-wrapper">
+    <a class="brand-logo" ng-cloak>{{ name }}</a>
+    <a data-activates="mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    <div>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="waves-effect waves-light" ng-click="openLoginModal()">Login</a></li>
+        <li><a class="waves-effect waves-light" ng-click="openRegisterModal()">Register</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile">
+        <li><a class="waves-effect waves-light" ng-click="openLoginModal()">Login</a></li>
+        <li><a class="waves-effect waves-light" ng-click="openRegisterModal()">Register</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
