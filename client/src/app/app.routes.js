@@ -31,12 +31,6 @@
             controller: 'BlogController',
             controllerAs: 'vm'
           }
-        },
-        data: {
-          permissions: {
-            only: ['member', 'admin'],
-            redirectTo: 'login'
-          }
         }
       })
       .state({
