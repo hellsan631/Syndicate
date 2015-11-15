@@ -985,6 +985,12 @@ module.factory(
           method: "POST"
         },
 
+        // INTERNAL. Use Topic.member() instead.
+        "::get::Topic::member": {
+          url: urlBase + "/Topics/:id/member",
+          method: "GET"
+        },
+
         /**
          * @ngdoc method
          * @name lbServices.Member#getCurrent
@@ -2589,6 +2595,12 @@ module.factory(
       { 'id': '@id' },
       {
 
+        // INTERNAL. Use Topic.member() instead.
+        "prototype$__get__member": {
+          url: urlBase + "/Topics/:id/member",
+          method: "GET"
+        },
+
         // INTERNAL. Use Topic.posts.findById() instead.
         "prototype$__findById__posts": {
           params: {
@@ -3269,6 +3281,42 @@ module.factory(
     */
     R.modelName = "Topic";
 
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Topic#member
+         * @methodOf lbServices.Topic
+         *
+         * @description
+         *
+         * Fetches belongsTo relation member.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Member` object.)
+         * </em>
+         */
+        R.member = function() {
+          var TargetResource = $injector.get("Member");
+          var action = TargetResource["::get::Topic::member"];
+          return action.apply(R, arguments);
+        };
     /**
      * @ngdoc object
      * @name lbServices.Topic.posts

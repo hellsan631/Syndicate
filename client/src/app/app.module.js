@@ -10,7 +10,9 @@
       'LocalForageModule',
       'angular-redactor',
       'permission',
-      'lbServices'
+      'lbServices',
+      'ls.LiveSet',
+      'ls.ChangeStream'
     ]);
 
 })();

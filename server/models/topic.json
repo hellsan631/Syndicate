@@ -11,6 +11,10 @@
       "type": "string",
       "required": true
     },
+    "lastUpdated": {
+      "type": "date",
+      "defaultFn": "now"
+    },
     "createdOn": {
       "type": "date",
       "defaultFn": "now"
@@ -18,15 +22,13 @@
   },
   "validations": [],
   "relations": {
-    "person": {
+    "member": {
       "type": "belongsTo",
-      "model": "Person",
-      "foreignKey": ""
+      "model": "Member"
     },
     "posts": {
       "type": "hasMany",
-      "model": "Post",
-      "foreignKey": ""
+      "model": "Post"
     }
   },
   "acls": [],

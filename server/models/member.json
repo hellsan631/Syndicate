@@ -24,13 +24,11 @@
   "relations": {
     "posts": {
       "type": "hasMany",
-      "model": "Post",
-      "foreignKey": ""
+      "model": "Post"
     },
     "topics": {
       "type": "hasMany",
-      "model": "Topic",
-      "foreignKey": ""
+      "model": "Topic"
     }
   },
   "acls": [

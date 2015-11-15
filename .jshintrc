@@ -24,6 +24,7 @@
     "$": true,
     "swal": true,
     "jQuery": true,
-    "addLoginJquery": true
+    "addLoginJquery": true,
+    "EventSource": true
   }
 }
