@@ -42,6 +42,12 @@
             controller: 'LoginController',
             controllerAs: 'vm'
           }
+        },
+        data: {
+          permissions: {
+            except: ['member', 'admin'],
+            redirectTo: 'forum'
+          }
         }
       })
       .state({

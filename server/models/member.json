@@ -7,16 +7,13 @@
     "validateUpsert": true
   },
   "properties": {
-    "email": {
-      "type": "string",
-      "required": true
+    "isAdmin": {
+      "type": "number",
+      "default": 0
     },
-    "password": {
-      "type": "string",
-      "required": true
-    },
-    "username": {
-      "type": "string"
+    "changedPass": {
+      "type": "number",
+      "default": 0
     },
     "createdOn": {
       "type": "date",

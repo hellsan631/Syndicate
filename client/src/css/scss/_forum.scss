@@ -1,0 +1,10 @@
+.redactor_editor{
+  min-height: 300px;
+}
+
+@media only screen and (max-width: 992px){
+  .modal:not(.bottom-sheet) {
+    width: 80%;
+    max-width: none;
+  }
+}

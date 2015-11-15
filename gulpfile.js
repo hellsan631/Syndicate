@@ -28,7 +28,7 @@ var gls 			 = require('gulp-live-server');
 // Error Handler
 // --------------------------------------------------------------------
 
-//the title and icon that will be used for the Grunt notifications
+//The title and icon that will be used for the gulp notifications
 var notifyInfo = {
 	title: 'Gulp',
 	icon: path.join(__dirname, 'gulp.png')
@@ -49,6 +49,14 @@ var onError = {
 var sourcePath = './client/src/';
 var vendorPath = sourcePath + 'vendor/';
 var serverPath = 'server/server.js';
+
+var bowerOptions = {
+  "overrides": {
+    "angular-redactor": {
+        "main": "angular-redactor-9.x.js"
+    }
+  }
+};
 
 var config = {
 	server: {
@@ -74,7 +82,10 @@ var config = {
     sources: {
       app: {
         css: [
-          sourcePath + 'css/styles.css'
+          sourcePath + 'css/styles.css',
+					sourcePath + 'app/*.css',
+          sourcePath + 'app/**/*.css',
+          sourcePath + 'app/**/**/*.css'
         ],
         js: [
           sourcePath + 'app/*.js',
@@ -93,7 +104,7 @@ var config = {
 //Default gulp task for dev purposes
 gulp.task('default', ['server', 'sass', 'inject', 'reload']);
 
-
+//Reloads the gulp process when the gulpfile changes.
 gulp.task('reload', function() {
   var p;
 
@@ -116,6 +127,12 @@ gulp.task('reload', function() {
 //Watches for changes in files that should be streamed/compiled to browser
 gulp.task('watch', function() {
 
+  //We only want to inject files when files are added/deleted, not changed.
+	var options = {events: ['add', 'unlink']};
+	var injectFn = function() {
+			gulp.start('inject');
+	};
+
   watch(
 		config.sass.source,
 		function(){
@@ -123,20 +140,18 @@ gulp.task('watch', function() {
 		}
 	);
 
+  //Watch for changes in app related files and inject new ones
 	watch(
 		config.inject.sources.app.js,
-		{events: ['add', 'unlink']},
-		function(){
-			gulp.start('inject');
-		}
+		options,
+		injectFn
 	);
 
+  //Watch for changes in bower directories, when new bower is installed.
 	watch(
 		bowerFiles(),
-		{events: ['add', 'unlink']},
-		function(){
-			gulp.start('inject');
-		}
+		options,
+		injectFn
 	);
 
 });
@@ -155,10 +170,12 @@ gulp.task('server', function() {
 		}
 	);
 
-	//Restart server on server/server.js changes
+	//Restart server on server file changes
 	gulp.watch(
 		config.server.reboot,
-		server.start.bind(server)
+		function() {
+      server.start.bind(server)();
+    }
 	);
 });
 
@@ -166,8 +183,9 @@ gulp.task('server', function() {
 gulp.task('inject', function () {
 
   return gulp.src(config.inject.target)
+		.pipe(plumber(onError))
     .pipe(inject(
-			gulp.src(bowerFiles(), {read: false}),
+			gulp.src(bowerFiles(bowerOptions), {read: false}),
 			{name: 'bower', relative: true}
 		))
     .pipe(inject(

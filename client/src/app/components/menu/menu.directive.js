@@ -21,7 +21,7 @@
     return directive;
 
     function controller($scope) {
-      
+
       $scope.openLoginModal = openLoginModal;
       $scope.submitLogin    = submitLogin;
 
@@ -38,17 +38,7 @@
           });
       }
 
-      function loginUser(loginFields){
-        return Member.login(loginFields).$promise
-          .then(function(response){
-            LoopBackAuth.currentUserId = response.userId;
-            LoopBackAuth.accessTokenId = response.id;
-            LoopBackAuth.save();
-
-            $localForage.setItem('currentUser', response.user);
-            $rootScope.currentUser = response.user;
-          });
-      }
+      
 
     }
 

@@ -31,6 +31,29 @@ html {
 /*
 * Animation
 */
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=time],
+input[type=date],
+input[type=datetime-local],
+input[type=tel],
+input[type=number],
+input[type=search],
+textarea.materialize-textarea {
+  position: relative;
+  z-index: 10; }
+
+.input-field {
+  position: relative;
+  margin-top: 1rem; }
+  .input-field label {
+    z-index: 0; }
+
+nav .brand-logo {
+  padding-left: 10px; }
+
 .full-screen {
   position: absolute;
   top: 0;
@@ -331,8 +354,7 @@ html {
   top: 2%;
   right: 2%;
   width: 100%;
-  height: 100%;
-  }
+  height: 100%; }
 
 .material-button .shape:before,
 .alt-2 .shape:before,
@@ -377,22 +399,10 @@ html {
   list-style-type: none;
   outline: none; }
 
-input[type=text],
-input[type=password],
-input[type=email],
-input[type=url],
-input[type=time],
-input[type=date],
-input[type=datetime-local],
-input[type=tel],
-input[type=number],
-input[type=search],
-textarea.materialize-textarea {
-  position: relative;
-  z-index: 10; }
+.redactor_editor {
+  min-height: 300px; }
 
-.input-field {
-  position: relative;
-  margin-top: 1rem; }
-  .input-field label {
-    z-index: 0; }
+@media only screen and (max-width: 992px) {
+  .modal:not(.bottom-sheet) {
+    width: 80%;
+    max-width: none; } }

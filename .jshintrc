@@ -23,6 +23,7 @@
     "Velocity": true,
     "$": true,
     "swal": true,
-    "jQuery": true
+    "jQuery": true,
+    "addLoginJquery": true
   }
 }
