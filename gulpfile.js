@@ -102,7 +102,7 @@ var config = {
 // --------------------------------------------------------------------
 
 //Default gulp task for dev purposes
-gulp.task('default', ['server', 'sass', 'inject', 'reload']);
+gulp.task('default', ['server', 'reload']);
 
 //Reloads the gulp process when the gulpfile changes.
 gulp.task('reload', function() {
@@ -119,7 +119,7 @@ gulp.task('reload', function() {
 		}
 
     // `spawn` a child `gulp` process linked to the parent `stdio`
-    p = spawn('gulp', ['watch'], {stdio: 'inherit'});
+    p = spawn('gulp', ['sass', 'inject', 'watch'], {stdio: 'inherit'});
 
   }
 });

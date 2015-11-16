@@ -1,44 +1,25 @@
 <div class="container">
+  <div class="row" style="padding-top: 40px; padding-bottom: 30px;">
+    <div class="col s12">
+      <a
+        class="right btn-floating btn-large waves-effect waves-light red darken-3 modal-trigger"
+        ng-click="vm.newTopicModal()">
 
-  <div class="row">
-
-    <div class="col s12"
-      ng-repeat="topic in vm.topics | orderBy: '-createdOn'"
-      ng-click="vm.goToPost(topic.id)">
-
-      <div class="card grey lighten-5">
-        <div class="card-content grey-text text-darken-3">
-          <div class="valign-wrapper">
-
-            <div class="col s12 valign no-padding">
-
-              <div class="col l4 m6 s12 truncate">
-                {{ topic.title }}
-              </div>
-              <div class="col l3 m3 s6 truncate">
-                {{ topic.person.fullname }}
-              </div>
-              <div class="col l2 truncate hide-on-med-and-down">
-                Accusantium
-              </div>
-              <div class="col m3 s6 truncate">
-                Oct 12th, 2015 @ 9:00pm
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
+        <i class="material-icons">add</i>
+      </a>
     </div>
   </div>
 
-  <a
-    class="right btn-floating btn-large waves-effect waves-light red darken-3 modal-trigger"
-    ng-click="vm.newTopicModal()">
 
-    <i class="material-icons">add</i>
-  </a>
+  <div class="row">
 
+    <div class="col s12 item"
+      ng-repeat="topic in vm.topics | orderBy: '-lastUpdated'"
+      ng-click="vm.goToPost(topic.id)">
+
+      <topic-item topic="topic"></topic-item>
+    </div>
+  </div>
 
 </div>
 

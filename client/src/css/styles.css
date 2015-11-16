@@ -51,6 +51,18 @@ textarea.materialize-textarea {
   .input-field label {
     z-index: 0; }
 
+@media only screen and (max-width: 992px) {
+  .container {
+    width: 85%; } }
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 95%; } }
+
+@media only screen and (max-width: 400px) {
+  .container {
+    width: 98%; } }
+
 nav .brand-logo {
   padding-left: 10px; }
 
@@ -401,6 +413,26 @@ nav .brand-logo {
 
 .redactor_editor {
   min-height: 300px; }
+
+.topic-item.ng-move,
+.topic-item.ng-enter,
+.topic-item.ng-leave {
+  -webkit-transition: all 600ms cubic-bezier(0.62, -0.005, 0.26, 0.995);
+  -moz-transition: all 600ms cubic-bezier(0.62, -0.005, 0.26, 0.995);
+  transition: all 600ms cubic-bezier(0.62, -0.005, 0.26, 0.995); }
+
+.topic-item.ng-leave.ng-leave-active,
+.topic-item.ng-move,
+.topic-item.ng-enter {
+  opacity: 0; }
+
+.topic-item.ng-leave,
+.topic-item.ng-move.ng-move-active,
+.topic-item.ng-enter.ng-enter-active {
+  opacity: 1; }
+
+.topic-item [ng-bind-html] p {
+  margin: 0; }
 
 @media only screen and (max-width: 992px) {
   .modal:not(.bottom-sheet) {

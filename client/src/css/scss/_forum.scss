@@ -2,6 +2,30 @@
   min-height: 300px;
 }
 
+.topic-item.ng-move,
+.topic-item.ng-enter,
+.topic-item.ng-leave {
+  @include materialBounce();
+}
+
+.topic-item.ng-leave.ng-leave-active,
+.topic-item.ng-move,
+.topic-item.ng-enter {
+  opacity:0;
+}
+
+.topic-item.ng-leave,
+.topic-item.ng-move.ng-move-active,
+.topic-item.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.topic-item {
+  [ng-bind-html] p {
+    margin: 0;
+  }
+}
+
 @media only screen and (max-width: 992px){
   .modal:not(.bottom-sheet) {
     width: 80%;

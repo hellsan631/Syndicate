@@ -32,7 +32,9 @@ module.exports = function(Post) {
     return Topic.findById(topicId)
       .then(function(topic){
         if (topic) {
-          return topic.updateAttribute('lastUpdated', new Date());
+          if (!ctx[instance].originalId) {
+            return topic.updateAttribute('lastUpdated', new Date());
+          }
         }
       });
   }

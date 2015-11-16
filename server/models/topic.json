@@ -22,6 +22,11 @@
   },
   "validations": [],
   "relations": {
+    "original": {
+      "type": "hasOne",
+      "model": "Post",
+      "foreignKey": "originalId"
+    },
     "member": {
       "type": "belongsTo",
       "model": "Member"

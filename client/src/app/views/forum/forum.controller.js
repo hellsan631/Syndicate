@@ -9,7 +9,7 @@
 
   function ForumController($rootScope, LiveSet, createChangeStream, Topic, Post){
     var _this = this;
-    var topicModal = $('#NewTopic');
+    var _topicModal = $('#NewTopic');
 
     _this.newTopicModal = newTopicModal;
     _this.createNewTopic = createNewTopic;
@@ -21,7 +21,7 @@
       var changes = createChangeStream(src);
       var live;
 
-      Topic.find({filter: {include: 'member'}}).$promise
+      Topic.find({filter: {include: ['member', 'original']}}).$promise
         .then(function(results) {
           live = new LiveSet(results, changes);
           _this.topics = live.toLiveArray();
@@ -29,16 +29,18 @@
     }
 
     function newTopicModal(){
-      topicModal.openModal();
+      _topicModal.openModal();
     }
 
     function createNewTopic(){
-      _this.topic.personId = _this.post.personId = $rootScope.currentUser.id;
+      _this.topic.memberId = _this.post.memberId = $rootScope.currentUser.id;
 
       createTopic(_this.topic)
         .then(createPost)
         .then(function(){
-          topicModal.closeModal();
+          _topicModal.closeModal();
+          _this.topic = {};
+          _this.post = {};
         });
     }
 
@@ -47,7 +49,7 @@
     }
 
     function createPost(topic){
-      _this.post.topicId = topic.id;
+      _this.post.originalId = _this.post.topicId = topic.id;
 
       return Post.create(_this.post).$promise;
     }

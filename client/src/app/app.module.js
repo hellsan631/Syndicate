@@ -9,6 +9,7 @@
       'ui.materialize',
       'LocalForageModule',
       'angular-redactor',
+      'angularMoment',
       'permission',
       'lbServices',
       'ls.LiveSet',
