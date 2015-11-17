@@ -503,8 +503,15 @@ topic-item, post-item {
 
 @media only screen and (max-width: 992px) {
   .modal:not(.bottom-sheet) {
-    width: 80%;
+    width: 85%;
     max-width: none; } }
+
+@media only screen and (max-width: 500px) {
+  .modal:not(.bottom-sheet) {
+    width: 95%;
+    max-width: none; }
+  .modal .modal-content {
+    padding: 14px; } }
 
 post-item .card .card-content .card-title {
   margin-top: -8px;

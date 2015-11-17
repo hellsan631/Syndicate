@@ -19,7 +19,7 @@
           class="btn-floating btn-large waves-effect waves-light red darken-3 modal-trigger"
           tooltipped
           data-position="top" data-delay="150" data-tooltip="New Post"
-          ng-click="vm.newTopicModal()">
+          ng-click="vm.newPostModal()">
 
           <i class="material-icons">add</i>
         </a>
@@ -33,7 +33,10 @@
     </div>
   </div>
   <div class="row" ng-class="vm.initialized ? 'initialized' : ''">
-    <div class="col s12" ng-repeat="post in vm.topic.posts | orderBy: 'createdOn'">
+    <div
+      class="col s12"
+      ng-repeat="post in vm.topic.posts | orderBy: 'createdOn'"
+      ng-click="vm.newPostModal(post.content, post.member.username)">
       <post-item post="post" topic="vm.topic"></post-item>
     </div>
   </div>
@@ -45,7 +48,7 @@
     <div class="modal-content">
       <div class="row">
         <div class="input-field col s12">
-          <textarea ng-model="vm.post.content" redactor></textarea>
+          <textarea ng-model="vm.newPost.content" redactor></textarea>
         </div>
       </div>
     </div>
