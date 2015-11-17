@@ -2,24 +2,39 @@
   min-height: 300px;
 }
 
-.topic-item.ng-move,
-.topic-item.ng-enter,
-.topic-item.ng-leave {
-  @include materialBounce();
+.initialized {
+  .topic-item.ng-move,
+  .topic-item.ng-enter,
+  .topic-item.ng-leave {
+    @include materialBounce(all, 0.8s);
+  }
+
+  .topic-item.ng-leave.ng-leave-active,
+  .topic-item.ng-move,
+  .topic-item.ng-enter {
+    opacity:0;
+    height: 0;
+  }
+
+  .topic-item.ng-enter .card {
+    -webkit-animation:lighten cubic-bezier(0.620, -0.005, 0.260, 0.995) 0.8s; /* Chrome, Safari, Opera */
+    animation:lighten cubic-bezier(0.620, -0.005, 0.260, 0.995) 0.8s;
+  }
+
+  .topic-item.ng-leave,
+  .topic-item.ng-move.ng-move-active,
+  .topic-item.ng-enter.ng-enter-active {
+    opacity:1;
+    height:auto;
+  }
 }
 
-.topic-item.ng-leave.ng-leave-active,
-.topic-item.ng-move,
-.topic-item.ng-enter {
-  opacity:0;
-  position: absolute;
-}
 
-.topic-item.ng-leave,
-.topic-item.ng-move.ng-move-active,
-.topic-item.ng-enter.ng-enter-active {
-  opacity:1;
-  position: relative;
+@include keyframes(lighten) {
+  0% {   box-shadow: none;     }
+  35% {  box-shadow: 0px 0px 10px #dd0; }
+  55% {  box-shadow: 0px 0px 10px #dd0; }
+  100% { box-shadow: none;     }
 }
 
 .topic-item {

@@ -12,6 +12,7 @@
     var _topicModal = $('#NewTopic');
 
     _this.topics = [];
+    _this.initialized = false;
 
     _this.newTopicModal   = newTopicModal;
     _this.createNewTopic  = createNewTopic;
@@ -59,6 +60,13 @@
         }
 
       });
+
+      if(!_this.initialized) {
+        $timeout(function(){
+          _this.initialized = true;
+        }, 100);
+      }
+
     }
 
     function unixTime(date) {

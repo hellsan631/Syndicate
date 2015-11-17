@@ -414,24 +414,69 @@ nav .brand-logo {
 .redactor_editor {
   min-height: 300px; }
 
-.topic-item.ng-move,
-.topic-item.ng-enter,
-.topic-item.ng-leave {
-  -webkit-transition: all 600ms cubic-bezier(0.62, -0.005, 0.26, 0.995);
-  -moz-transition: all 600ms cubic-bezier(0.62, -0.005, 0.26, 0.995);
-  transition: all 600ms cubic-bezier(0.62, -0.005, 0.26, 0.995); }
+.initialized .topic-item.ng-move,
+.initialized .topic-item.ng-enter,
+.initialized .topic-item.ng-leave {
+  -webkit-transition: all 0.8s cubic-bezier(0.62, -0.005, 0.26, 0.995);
+  -moz-transition: all 0.8s cubic-bezier(0.62, -0.005, 0.26, 0.995);
+  transition: all 0.8s cubic-bezier(0.62, -0.005, 0.26, 0.995); }
 
-.topic-item.ng-leave.ng-leave-active,
-.topic-item.ng-move,
-.topic-item.ng-enter {
+.initialized .topic-item.ng-leave.ng-leave-active,
+.initialized .topic-item.ng-move,
+.initialized .topic-item.ng-enter {
   opacity: 0;
-  position: absolute; }
+  height: 0; }
 
-.topic-item.ng-leave,
-.topic-item.ng-move.ng-move-active,
-.topic-item.ng-enter.ng-enter-active {
+.initialized .topic-item.ng-enter .card {
+  -webkit-animation: lighten cubic-bezier(0.62, -0.005, 0.26, 0.995) 0.8s;
+  /* Chrome, Safari, Opera */
+  animation: lighten cubic-bezier(0.62, -0.005, 0.26, 0.995) 0.8s; }
+
+.initialized .topic-item.ng-leave,
+.initialized .topic-item.ng-move.ng-move-active,
+.initialized .topic-item.ng-enter.ng-enter-active {
   opacity: 1;
-  position: relative; }
+  height: auto; }
+
+@-webkit-keyframes lighten {
+  0% {
+    box-shadow: none; }
+  35% {
+    box-shadow: 0px 0px 10px #dd0; }
+  55% {
+    box-shadow: 0px 0px 10px #dd0; }
+  100% {
+    box-shadow: none; } }
+
+@-moz-keyframes lighten {
+  0% {
+    box-shadow: none; }
+  35% {
+    box-shadow: 0px 0px 10px #dd0; }
+  55% {
+    box-shadow: 0px 0px 10px #dd0; }
+  100% {
+    box-shadow: none; } }
+
+@-ms-keyframes lighten {
+  0% {
+    box-shadow: none; }
+  35% {
+    box-shadow: 0px 0px 10px #dd0; }
+  55% {
+    box-shadow: 0px 0px 10px #dd0; }
+  100% {
+    box-shadow: none; } }
+
+@keyframes lighten {
+  0% {
+    box-shadow: none; }
+  35% {
+    box-shadow: 0px 0px 10px #dd0; }
+  55% {
+    box-shadow: 0px 0px 10px #dd0; }
+  100% {
+    box-shadow: none; } }
 
 .topic-item [ng-bind-html] p {
   margin: 0; }
