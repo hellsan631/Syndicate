@@ -1,4 +1,4 @@
-<div class="card grey lighten-5">
+<div class="card grey lighten-4">
   <div class="card-content grey-text text-darken-3">
     <div class="valign-wrapper">
 
@@ -7,16 +7,14 @@
         <div class="col l3 m4 s12 truncate">
           {{ topic.title }}
         </div>
-        <div ng-if="topic.member.username"class="col l3 m4 s6 truncate">
-          {{ topic.member.username }}
+        <div class="col l2 m4 s6 truncate">
+          @{{ topic.member.username }}
         </div>
         <div
-          ng-class="topic.member.username ? 'hide-on-med-and-down' : 'm4 s6'"
-          class="col l2 truncate"
-          ng-bind-html="topic.original.content | trust"
-          >
+          class="col l4 hide-on-med-and-down truncate"
+          ng-bind-html="topic.original.content | trust">
         </div>
-        <div class="col m4 s6 right-align truncate">
+        <div class="col m3 s6 right-align truncate">
           <span am-time-ago="topic.lastUpdated"></span>
         </div>
 

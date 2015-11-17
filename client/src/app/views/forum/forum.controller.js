@@ -5,14 +5,17 @@
     .module('app')
     .controller('ForumController', ForumController);
 
-  ForumController.$inject = ['$rootScope', 'LiveSet', 'createChangeStream', 'Topic', 'Post'];
+  ForumController.$inject = ['$rootScope', '$timeout', '$state', 'createChangeStream', 'Topic', 'Post'];
 
-  function ForumController($rootScope, LiveSet, createChangeStream, Topic, Post){
+  function ForumController($rootScope, $timeout, $state, createChangeStream, Topic, Post){
     var _this = this;
     var _topicModal = $('#NewTopic');
 
-    _this.newTopicModal = newTopicModal;
-    _this.createNewTopic = createNewTopic;
+    _this.topics = [];
+
+    _this.newTopicModal   = newTopicModal;
+    _this.createNewTopic  = createNewTopic;
+    _this.goToTopic       = goToTopic;
 
     syncTopics();
 
@@ -21,11 +24,49 @@
       var changes = createChangeStream(src);
       var live;
 
+      getTopics();
+
+      changes.on('data', function(msg) {
+        $timeout(function(){
+          getTopics();
+        }, 250);
+      });
+    }
+
+    function getTopics() {
       Topic.find({filter: {include: ['member', 'original']}}).$promise
-        .then(function(results) {
-          live = new LiveSet(results, changes);
-          _this.topics = live.toLiveArray();
-        });
+        .then(filterNewResults);
+    }
+
+    function filterNewResults(results) {
+      results.forEach(function(result){
+        var dupe = false;
+
+        if (_this.topics.length > 0){
+          _this.topics.forEach(function(topic, index){
+            if (result.id === topic.id) {
+              dupe = true;
+
+              if (unixTime(result.lastUpdated) !== unixTime(topic.lastUpdated)) {
+                _this.topics[index] = result;
+              }
+            }
+          });
+        }
+
+        if (!dupe) {
+          _this.topics.push(result);
+        }
+
+      });
+    }
+
+    function unixTime(date) {
+      return Date.parse(date)/1000;
+    }
+
+    function goToTopic(id) {
+      $state.go('topic', {id: id});
     }
 
     function newTopicModal(){

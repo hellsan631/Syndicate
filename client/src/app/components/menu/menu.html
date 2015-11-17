@@ -1,15 +1,19 @@
 <nav class="red darken-4" ng-if="user">
   <div class="nav-wrapper">
     <a class="brand-logo">Syndicate</a>
-    <a data-activates="mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    <a
+      class="button-collapse"
+      data-activates="mobile"
+      data-sidenav="left"
+      data-closeonclick="true">
+      <i class="mdi-navigation-menu"></i>
+    </a>
     <div>
       <ul class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-light" ng-click="openLoginModal()">Login</a></li>
-        <li><a class="waves-effect waves-light" ng-click="openRegisterModal()">Register</a></li>
+        <li><a class="waves-effect waves-light" ng-click="logout()">Logout</a></li>
       </ul>
       <ul class="side-nav" id="mobile">
-        <li><a class="waves-effect waves-light" ng-click="openLoginModal()">Login</a></li>
-        <li><a class="waves-effect waves-light" ng-click="openRegisterModal()">Register</a></li>
+        <li><a class="waves-effect waves-light" ng-click="logout()">Logout</a></li>
       </ul>
     </div>
   </div>

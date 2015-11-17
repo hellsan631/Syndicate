@@ -3,16 +3,17 @@
 
   angular
     .module('app')
-    .directive('topicItem', TopicItem);
+    .directive('postItem', PostItem);
 
-  TopicItem.$inject = [];
+  PostItem.$inject = [];
 
-  function TopicItem() {
+  function PostItem() {
     var directive = {
       restrict: 'E',
       transclude: true,
-      templateUrl: 'app/components/topicItem/topicItem.html',
+      templateUrl: 'app/components/postItem/postItem.html',
       scope: {
+        post: '=',
         topic: '='
       }
     };

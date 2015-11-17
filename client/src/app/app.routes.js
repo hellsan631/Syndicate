@@ -31,6 +31,12 @@
             controller: 'BlogController',
             controllerAs: 'vm'
           }
+        },
+        data: {
+          permissions: {
+            only: ['guest'],
+            redirectTo: 'forum'
+          }
         }
       })
       .state({
@@ -57,6 +63,23 @@
           main: {
             templateUrl: 'app/views/forum/forum.html',
             controller: 'ForumController',
+            controllerAs: 'vm'
+          }
+        },
+        data: {
+          permissions: {
+            only: ['member', 'admin'],
+            redirectTo: 'login'
+          }
+        }
+      })
+      .state({
+        name: 'topic',
+        url: '/topic/:id',
+        views: {
+          main: {
+            templateUrl: 'app/views/forum/topic.html',
+            controller: 'TopicController',
             controllerAs: 'vm'
           }
         },

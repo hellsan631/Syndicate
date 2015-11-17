@@ -1,0 +1,15 @@
+<div class="container" ng-if="vm.topic">
+  <div class="row">
+    <div class="col s12 white-text text-darken-3">
+
+      <h3>{{ vm.topic.title }}</h3>
+      <h6>Last Post: <span am-time-ago="vm.topic.lastUpdated"></span></h6>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12" ng-repeat="post in vm.topic.posts">
+      <post-item post="post" topic="vm.topic"></post-item>
+    </div>
+  </div>
+</div>

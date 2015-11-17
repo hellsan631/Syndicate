@@ -3,3 +3,11 @@
 @import "menu";
 @import "login";
 @import "forum";
+
+[ng-click] {
+  cursor: pointer;
+}
+
+.no-margin {
+  margin: 0;
+}

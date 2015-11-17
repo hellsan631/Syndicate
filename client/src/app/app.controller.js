@@ -13,11 +13,21 @@
     var _this = this;
 
     Member.getCurrent().$promise
-      .then(saveCurrentUser);
+      .then(saveCurrentUser)
+      .catch(removeUser);
 
     function saveCurrentUser(user) {
-      $localForage.setItem('currentUser', user);
-      $rootScope.currentUser = user;
+      if (user) {
+        $localForage.setItem('currentUser', user);
+        $rootScope.currentUser = user;
+      } else {
+        removeUser();
+      }
+    }
+
+    function removeUser() {
+      $localForage.removeItem('currentUser');
+      $rootScope.currentUser = false;
     }
 
   }

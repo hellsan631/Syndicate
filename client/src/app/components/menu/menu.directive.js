@@ -5,9 +5,9 @@
     .module('app')
     .directive('topMenu', TopMenu);
 
-  TopMenu.$inject = ['$rootScope', '$state', '$localForage', 'LoopBackAuth', 'Member'];
+  TopMenu.$inject = ['$rootScope', '$state', '$localForage', 'Member', 'LoopBackAuth'];
 
-  function TopMenu($rootScope, $state, $localForage, LoopBackAuth, Member) {
+  function TopMenu($rootScope, $state, $localForage, Member, LoopBackAuth) {
     var directive = {
       restrict: 'E',
       transclude: true,
@@ -22,23 +22,20 @@
 
     function controller($scope) {
 
-      $scope.openLoginModal = openLoginModal;
-      $scope.submitLogin    = submitLogin;
+      $scope.logout = logout;
 
-      function openLoginModal() {
-        $('.button-collapse').sideNav('hide');
-
-        $('#LoginModal').openModal();
-      }
-
-      function submitLogin() {
-        loginUser($scope.login)
+      function logout() {
+        Member.logout().$promise
           .then(function(){
-            $('#LoginModal').closeModal();
+            return $localForage.removeItem('currentUser');
+          })
+          .then(function(){
+            LoopBackAuth.clearUser();
+            LoopBackAuth.clearStorage();
+            $rootScope.currentUser = false;
+            $state.go('login');
           });
       }
-
-      
 
     }
 

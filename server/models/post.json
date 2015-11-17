@@ -18,9 +18,9 @@
   },
   "validations": [],
   "relations": {
-    "person": {
+    "member": {
       "type": "belongsTo",
-      "model": "Person",
+      "model": "Member",
       "foreignKey": ""
     },
     "topic": {
