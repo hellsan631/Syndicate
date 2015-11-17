@@ -414,29 +414,46 @@ nav .brand-logo {
 .redactor_editor {
   min-height: 300px; }
 
-.initialized .topic-item.ng-move,
-.initialized .topic-item.ng-enter,
-.initialized .topic-item.ng-leave {
+topic-item, post-item {
+  display: block; }
+
+.initialized .ng-move,
+.initialized .ng-enter,
+.initialized .ng-leave {
   -webkit-transition: all 0.8s cubic-bezier(0.62, -0.005, 0.26, 0.995);
   -moz-transition: all 0.8s cubic-bezier(0.62, -0.005, 0.26, 0.995);
   transition: all 0.8s cubic-bezier(0.62, -0.005, 0.26, 0.995); }
+  .initialized .ng-move post-item,
+  .initialized .ng-enter post-item,
+  .initialized .ng-leave post-item {
+    -webkit-transition: all 0.4s cubic-bezier(0.62, -0.005, 0.26, 0.995);
+    -moz-transition: all 0.4s cubic-bezier(0.62, -0.005, 0.26, 0.995);
+    transition: all 0.4s cubic-bezier(0.62, -0.005, 0.26, 0.995); }
 
-.initialized .topic-item.ng-leave.ng-leave-active,
-.initialized .topic-item.ng-move,
-.initialized .topic-item.ng-enter {
+.initialized .ng-leave.ng-leave-active,
+.initialized .ng-move,
+.initialized .ng-enter {
   opacity: 0;
   height: 0; }
+  .initialized .ng-leave.ng-leave-active post-item,
+  .initialized .ng-move post-item,
+  .initialized .ng-enter post-item {
+    margin-top: 50px; }
 
-.initialized .topic-item.ng-enter .card {
+.initialized .ng-enter .card {
   -webkit-animation: lighten cubic-bezier(0.62, -0.005, 0.26, 0.995) 0.8s;
   /* Chrome, Safari, Opera */
   animation: lighten cubic-bezier(0.62, -0.005, 0.26, 0.995) 0.8s; }
 
-.initialized .topic-item.ng-leave,
-.initialized .topic-item.ng-move.ng-move-active,
-.initialized .topic-item.ng-enter.ng-enter-active {
+.initialized .ng-leave,
+.initialized .ng-move.ng-move-active,
+.initialized .ng-enter.ng-enter-active {
   opacity: 1;
   height: auto; }
+  .initialized .ng-leave post-item,
+  .initialized .ng-move.ng-move-active post-item,
+  .initialized .ng-enter.ng-enter-active post-item {
+    margin-top: 0px; }
 
 @-webkit-keyframes lighten {
   0% {
@@ -480,6 +497,9 @@ nav .brand-logo {
 
 .topic-item [ng-bind-html] p {
   margin: 0; }
+
+.topic-item .bold {
+  font-weight: 700; }
 
 @media only screen and (max-width: 992px) {
   .modal:not(.bottom-sheet) {

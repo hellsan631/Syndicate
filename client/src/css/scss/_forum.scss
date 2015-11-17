@@ -2,30 +2,47 @@
   min-height: 300px;
 }
 
+topic-item, post-item{
+  display: block;
+}
+
 .initialized {
-  .topic-item.ng-move,
-  .topic-item.ng-enter,
-  .topic-item.ng-leave {
+  .ng-move,
+  .ng-enter,
+  .ng-leave {
     @include materialBounce(all, 0.8s);
+
+    post-item {
+      @include materialBounce(all, 0.4s);
+    }
   }
 
-  .topic-item.ng-leave.ng-leave-active,
-  .topic-item.ng-move,
-  .topic-item.ng-enter {
+  .ng-leave.ng-leave-active,
+  .ng-move,
+  .ng-enter {
     opacity:0;
     height: 0;
+
+    post-item {
+      margin-top: 50px;
+    }
   }
 
-  .topic-item.ng-enter .card {
+
+  .ng-enter .card {
     -webkit-animation:lighten cubic-bezier(0.620, -0.005, 0.260, 0.995) 0.8s; /* Chrome, Safari, Opera */
     animation:lighten cubic-bezier(0.620, -0.005, 0.260, 0.995) 0.8s;
   }
 
-  .topic-item.ng-leave,
-  .topic-item.ng-move.ng-move-active,
-  .topic-item.ng-enter.ng-enter-active {
+  .ng-leave,
+  .ng-move.ng-move-active,
+  .ng-enter.ng-enter-active {
     opacity:1;
     height:auto;
+
+    post-item {
+      margin-top: 0px;
+    }
   }
 }
 
@@ -40,6 +57,10 @@
 .topic-item {
   [ng-bind-html] p {
     margin: 0;
+  }
+
+  .bold {
+    font-weight: 700;
   }
 }
 

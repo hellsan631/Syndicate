@@ -5,9 +5,9 @@
     .module('app')
     .controller('ForumController', ForumController);
 
-  ForumController.$inject = ['$rootScope', '$timeout', '$state', 'createChangeStream', 'Topic', 'Post'];
+  ForumController.$inject = ['$rootScope', '$timeout', '$q', '$state', 'createChangeStream', 'Topic', 'Post'];
 
-  function ForumController($rootScope, $timeout, $state, createChangeStream, Topic, Post){
+  function ForumController($rootScope, $timeout, $q, $state, createChangeStream, Topic, Post){
     var _this = this;
     var _topicModal = $('#NewTopic');
 
@@ -70,7 +70,7 @@
     }
 
     function unixTime(date) {
-      return Date.parse(date)/1000;
+      return Date.parse(date);
     }
 
     function goToTopic(id) {
@@ -82,6 +82,10 @@
     }
 
     function createNewTopic(){
+      if(!_this.post.content || _this.post.content.length === 0) {
+        return errorMessage('No Post Content', 'You need to enter in some content to make a topic');
+      }
+
       _this.topic.memberId = _this.post.memberId = $rootScope.currentUser.id;
 
       createTopic(_this.topic)
@@ -91,6 +95,12 @@
           _this.topic = {};
           _this.post = {};
         });
+    }
+
+    function errorMessage(title, text) {
+      swal(title, text, 'error');
+
+      return $q(function(){return null;});
     }
 
     function createTopic(topic){

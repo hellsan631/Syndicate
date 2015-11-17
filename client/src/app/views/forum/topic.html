@@ -1,15 +1,57 @@
 <div class="container" ng-if="vm.topic">
-  <div class="row">
-    <div class="col s12 white-text text-darken-3">
+  <div class="row" style="padding-top: 20px; padding-bottom: 10px;">
+    <div class="col s12 valign-wrapper">
+      <div class="col s1 valign">
+        &nbsp;
+      </div>
+      <div class="col s11 valign" style="margin-left: 2em;">
+        <a
+          tooltipped
+          data-position="right" data-delay="150" data-tooltip="Back to forums"
+          ui-sref="forum">
+          Forums
+        </a>
+      </div>
+    </div>
+    <div class="col s12 valign-wrapper white-text text-darken-3" style="padding-top: 10px;">
+      <div class="col s1 valign">
+        <a
+          class="btn-floating btn-large waves-effect waves-light red darken-3 modal-trigger"
+          tooltipped
+          data-position="top" data-delay="150" data-tooltip="New Post"
+          ng-click="vm.newTopicModal()">
 
-      <h3>{{ vm.topic.title }}</h3>
-      <h6>Last Post: <span am-time-ago="vm.topic.lastUpdated"></span></h6>
+          <i class="material-icons">add</i>
+        </a>
+      </div>
+
+      <div class="col s11 valign" style="margin-left: 2em;">
+        <h3 class="no-margin">{{ vm.topic.title }}</h3>
+        <h6>Last Post: <span am-time-ago="vm.topic.lastUpdated"></span></h6>
+      </div>
 
     </div>
   </div>
-  <div class="row">
-    <div class="col s12" ng-repeat="post in vm.topic.posts">
+  <div class="row" ng-class="vm.initialized ? 'initialized' : ''">
+    <div class="col s12" ng-repeat="post in vm.topic.posts | orderBy: 'createdOn'">
       <post-item post="post" topic="vm.topic"></post-item>
     </div>
   </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="NewPost" class="modal">
+  <form name="submitPost" ng-submit="vm.createNewPost()">
+    <div class="modal-content">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea ng-model="vm.post.content" redactor></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="waves-effect waves-green green lighten-4 btn-flat">New Post</button>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+    </div>
+  </form>
 </div>

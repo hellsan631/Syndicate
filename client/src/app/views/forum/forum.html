@@ -1,17 +1,26 @@
 <div class="container">
   <div class="row" style="padding-top: 40px; padding-bottom: 0px;">
-    <div class="col s12">
-      <h3 class="left white-text no-margin">Forums</h3>
-      <a
-        class="right btn-floating btn-large waves-effect waves-light red darken-3 modal-trigger"
-        ng-click="vm.newTopicModal()">
+    <div class="col s12 valign-wrapper white-text">
+      <div class="col s1 valign">
+        <a
+          class="btn-floating btn-large waves-effect waves-light red darken-3 modal-trigger"
+          tooltipped
+          data-position="top" data-delay="150" data-tooltip="New Topic"
+          ng-click="vm.newTopicModal()">
 
-        <i class="material-icons">add</i>
-      </a>
+          <i class="material-icons">add</i>
+        </a>
+      </div>
+
+      <div class="col s11 valign no-margin" style="margin-left: 2em;" input-field>
+        <input style="font-size: 1.3em;" type="text" ng-model="vm.forumSearch">
+        <label>Forums</label>
+      </div>
+
     </div>
   </div>
 
-  <div class="row" ng-class="vm.initialized ? 'initialized' : ''">
+  <div class="row initialized" ng-class="vm.initialized ? 'initialized' : ''">
     <div class="col s12">
       <div class="card-panel z-depth-0 grey darken-4 white-text">
         <div class="card-content">
@@ -35,8 +44,8 @@
       </div>
     </div>
 
-    <div class="col s12 topic-item"
-      ng-repeat="topic in vm.topics | orderBy: '-lastUpdated'"
+    <div class="col s12"
+      ng-repeat="topic in vm.topics | orderBy: '-lastUpdated' | filter: vm.forumSearch"
       ng-click="vm.goToTopic(topic.id)">
 
       <topic-item topic="topic"></topic-item>

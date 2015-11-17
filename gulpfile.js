@@ -64,6 +64,7 @@ var config = {
 		reload: [
 			sourcePath + '*.html', 			 //index.html
 			sourcePath + 'images/*.*',	 //image files
+			sourcePath + 'css/*.*',	 		 //css files
 			sourcePath + 'app/**/*.*',	 //any app files
 			sourcePath + 'app/**/**/*.*' //any component/view files
 		],

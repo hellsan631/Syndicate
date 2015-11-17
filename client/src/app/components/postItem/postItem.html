@@ -6,6 +6,6 @@
       <strong>@{{ post.member.username }}</strong>
       <small class="right small" am-time-ago="post.createdOn"></small>
     </span>
-    <div ng-bind-html="post.content | trust"></div>
+    <div class="flow-text" ng-bind-html="post.content | trust"></div>
   </div>
 </div>
