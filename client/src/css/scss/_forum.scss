@@ -54,6 +54,19 @@ topic-item, post-item{
   100% { box-shadow: none;     }
 }
 
+.title-box {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.row .col div.topic-title {
+  margin-left: 2em;
+}
+
+.row .col div.forum-title {
+  margin-left: 2em;
+}
+
 .topic-item {
   [ng-bind-html] p {
     margin: 0;
@@ -68,17 +81,54 @@ topic-item, post-item{
   .modal:not(.bottom-sheet) {
     width: 85%;
     max-width: none;
+    max-height: none;
   }
 }
 
 @media only screen and (max-width: 500px){
   .modal:not(.bottom-sheet) {
     width: 95%;
-    max-width: none;
   }
 
   .modal .modal-content {
     padding: 14px;
+  }
+}
+
+@media only screen and (max-width: 340px){
+  .modal:not(.bottom-sheet) {
+    width: 98%;
+  }
+
+  .title-box {
+    padding:0;
+  }
+
+  .row .col div.topic-title {
+    margin-left: 0em;
+    margin-top: 10px;
+  }
+
+  .row .col div.forum-title {
+    margin-left: 0em;
+  }
+
+  .col.valign-wrapper.desolve{
+    display: block;
+    @include align-items(inherit);
+  }
+
+  .modal .modal-content {
+    padding: 5px;
+
+    .row .col {
+      padding: 0;
+    }
+  }
+
+  .fit-box {
+    max-width: 100%;
+    margin: 0 !important;
   }
 }
 

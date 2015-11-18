@@ -1,20 +1,20 @@
 <div class="container" ng-if="vm.topic">
-  <div class="row" style="padding-top: 20px; padding-bottom: 10px;">
-    <div class="col s12 valign-wrapper">
-      <div class="col s1 valign">
+  <div class="row fit-box title-box">
+    <div class="col s12 valign-wrapper desolve no-padding">
+      <div class="col s1 xs12 valign">
         &nbsp;
       </div>
-      <div class="col s11 valign" style="margin-left: 2em;">
+      <div class="col s11 xs12 valign topic-title">
         <a
           tooltipped
           data-position="right" data-delay="150" data-tooltip="Back to forums"
           ui-sref="forum">
-          Forums
+          <h6 style="padding-bottom: 10px;">Forums</h6>
         </a>
       </div>
     </div>
-    <div class="col s12 valign-wrapper white-text text-darken-3" style="padding-top: 10px;">
-      <div class="col s1 valign">
+    <div class="col s12 no-padding desolve valign-wrapper white-text text-darken-3" style="padding-top: 10px;">
+      <div class="col s1 xs12 valign">
         <a
           class="btn-floating btn-large waves-effect waves-light red darken-3 modal-trigger"
           tooltipped
@@ -25,14 +25,14 @@
         </a>
       </div>
 
-      <div class="col s11 valign" style="margin-left: 2em;">
-        <h3 class="no-margin">{{ vm.topic.title }}</h3>
+      <div class="col s11 xs12 valign topic-title" >
+        <h3 class="no-margin truncate">{{ vm.topic.title }}</h3>
         <h6>Last Post: <span am-time-ago="vm.topic.lastUpdated"></span></h6>
       </div>
 
     </div>
   </div>
-  <div class="row" ng-class="vm.initialized ? 'initialized' : ''">
+  <div class="row fit-box" ng-class="vm.initialized ? 'initialized' : ''">
     <div
       class="col s12"
       ng-repeat="post in vm.topic.posts | orderBy: 'createdOn'"
