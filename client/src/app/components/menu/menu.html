@@ -10,10 +10,26 @@
     </a>
     <div>
       <ul class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-light" ng-click="logout()">Logout</a></li>
+        <li>
+          <a ui-sref="forum" class="waves-effect waves-light">Forum</a>
+        </li>
+        <li ng-if="user.isAdmin === 1">
+          <a ui-sref="admin" class="waves-effect waves-light">Admin</a>
+        </li>
+        <li>
+          <a class="waves-effect waves-light" ng-click="logout()">Logout</a>
+        </li>
       </ul>
       <ul class="side-nav" id="mobile">
-        <li><a class="waves-effect waves-light" ng-click="logout()">Logout</a></li>
+        <li>
+          <a ui-sref="forum" class="waves-effect waves-light">Forum</a>
+        </li>
+        <li ng-if="user.isAdmin === 1">
+          <a ui-sref="admin" class="waves-effect waves-light">Admin</a>
+        </li>
+        <li>
+          <a class="waves-effect waves-light" ng-click="logout()">Logout</a>
+        </li>
       </ul>
     </div>
   </div>

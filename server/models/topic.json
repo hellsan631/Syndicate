@@ -18,6 +18,10 @@
     "createdOn": {
       "type": "date",
       "defaultFn": "now"
+    },
+    "deleted": {
+      "type": "boolean",
+      "default": false
     }
   },
   "validations": [],

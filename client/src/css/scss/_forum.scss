@@ -6,6 +6,27 @@ topic-item, post-item{
   display: block;
 }
 
+.row .col .half-card {
+  padding: 10px 20px;
+  cursor: default;
+}
+
+.strike-through{
+  text-decoration: line-through;
+}
+
+.delete-icon {
+  position: absolute;
+  right: -71px;
+  color: #fff;
+  top:0px;
+  padding:19px;
+
+  i {
+    font-size: 1.8em;
+  }
+}
+
 .initialized {
   .ng-move,
   .ng-enter,
@@ -82,6 +103,23 @@ topic-item, post-item{
     width: 85%;
     max-width: none;
     max-height: none;
+  }
+
+  .delete-icon {
+    right: 1px;
+    color: #333;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .delete-icon {
+    top: -6px;
+    right:-6px;
+    color: #666;
+
+    i {
+      font-size: 1.3em;
+    }
   }
 }
 

@@ -5,9 +5,9 @@
     .module('app')
     .controller('ForumController', ForumController);
 
-  ForumController.$inject = ['$rootScope', '$timeout', '$q', '$state', 'createChangeStream', 'Topic', 'Post'];
+  ForumController.$inject = ['$rootScope', '$timeout', '$q', 'createChangeStream', 'Topic', 'Post'];
 
-  function ForumController($rootScope, $timeout, $q, $state, createChangeStream, Topic, Post){
+  function ForumController($rootScope, $timeout, $q, createChangeStream, Topic, Post){
     var _this = this;
     var _topicModal = $('#NewTopic');
 
@@ -16,7 +16,6 @@
 
     _this.newTopicModal   = newTopicModal;
     _this.createNewTopic  = createNewTopic;
-    _this.goToTopic       = goToTopic;
 
     syncTopics();
 
@@ -71,10 +70,6 @@
 
     function unixTime(date) {
       return Date.parse(date);
-    }
-
-    function goToTopic(id) {
-      $state.go('topic', {id: id});
     }
 
     function newTopicModal(){

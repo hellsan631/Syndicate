@@ -6,10 +6,10 @@
     .controller('AppController', AppController);
 
   AppController.$inject = [
-    '$rootScope', '$localForage', 'Member'
+    '$rootScope', '$localForage', 'Member', 'LoopBackAuth'
   ];
 
-  function AppController($rootScope, $localForage, Member){
+  function AppController($rootScope, $localForage, Member, LoopBackAuth){
     var _this = this;
 
     Member.getCurrent().$promise
@@ -28,6 +28,12 @@
     function removeUser() {
       $localForage.removeItem('currentUser');
       $rootScope.currentUser = false;
+
+      if(LoopBackAuth.currentUserId) {
+        LoopBackAuth.clearUser();
+        LoopBackAuth.clearStorage();
+      }
+
     }
 
   }

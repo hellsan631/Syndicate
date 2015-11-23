@@ -1,0 +1,44 @@
+<div class="container">
+
+  <div class="row" style="margin-top: 20px;">
+    <div class="col s12">
+      <ul class="tabs" tabs>
+        <li class="tab col s6">
+          <a href="#test1">New User</a>
+        </li>
+        <li class="tab col s6">
+          <a href="#test2">Manage Users</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col s12" style="margin-top: 20px;">
+      <div id="test1">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">New User</span>
+            <div input-field>
+              <input type="text" ng-model="vm.user.username" required length="60">
+              <label>Username</label>
+            </div>
+            <div input-field>
+              <input type="email" ng-model="vm.user.email" required length="60">
+              <label>Email</label>
+            </div>
+            <div input-field>
+              <input type="text" ng-model="vm.user.password" required length="60">
+              <label>Password</label>
+            </div>
+          </div>
+          <div class="card-action">
+            <a ng-click="vm.clear()">Clear</a>
+            <a ng-click="vm.password()">New Password</a>
+            <a ng-click="vm.submit()">Submit User</a>
+          </div>
+        </div>
+      </div>
+      <div id="test2" class="col s12">Test 2</div>
+    </div>
+
+  </div>
+
+</div>

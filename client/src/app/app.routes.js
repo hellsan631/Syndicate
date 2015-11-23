@@ -57,6 +57,23 @@
         }
       })
       .state({
+        name: 'admin',
+        url: '/admin',
+        views: {
+          main: {
+            templateUrl: 'app/views/admin/admin.html',
+            controller: 'AdminController',
+            controllerAs: 'vm'
+          }
+        },
+        data: {
+          permissions: {
+            only: ['admin'],
+            redirectTo: 'forum'
+          }
+        }
+      })
+      .state({
         name: 'forum',
         url: '/forum',
         views: {

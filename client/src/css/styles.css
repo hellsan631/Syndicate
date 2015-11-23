@@ -408,7 +408,10 @@ h6 {
 
 @media only screen and (max-width: 600px) {
   .container {
-    width: 95%; } }
+    width: 95%; }
+    .container .row {
+      margin-left: auto;
+      margin-right: auto; } }
 
 @media only screen and (max-width: 400px) {
   .container {
@@ -768,6 +771,22 @@ nav .brand-logo {
 topic-item, post-item {
   display: block; }
 
+.row .col .half-card {
+  padding: 10px 20px;
+  cursor: default; }
+
+.strike-through {
+  text-decoration: line-through; }
+
+.delete-icon {
+  position: absolute;
+  right: -71px;
+  color: #fff;
+  top: 0px;
+  padding: 19px; }
+  .delete-icon i {
+    font-size: 1.8em; }
+
 .initialized .ng-move,
 .initialized .ng-enter,
 .initialized .ng-leave {
@@ -866,7 +885,18 @@ topic-item, post-item {
   .modal:not(.bottom-sheet) {
     width: 85%;
     max-width: none;
-    max-height: none; } }
+    max-height: none; }
+  .delete-icon {
+    right: 1px;
+    color: #333; } }
+
+@media only screen and (max-width: 600px) {
+  .delete-icon {
+    top: -6px;
+    right: -6px;
+    color: #666; }
+    .delete-icon i {
+      font-size: 1.3em; } }
 
 @media only screen and (max-width: 500px) {
   .modal:not(.bottom-sheet) {

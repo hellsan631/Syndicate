@@ -37,7 +37,14 @@ h6 {
 @media only screen and (max-width: 600px){
   .container {
     width: 95%;
+
+    .row {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
+
+
 }
 
 @media only screen and (max-width: 400px){

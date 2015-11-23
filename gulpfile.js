@@ -65,8 +65,9 @@ var config = {
 			sourcePath + '*.html', 			 //index.html
 			sourcePath + 'images/*.*',	 //image files
 			sourcePath + 'css/*.*',	 		 //css files
-			sourcePath + 'app/**/*.*',	 //any app files
-			sourcePath + 'app/**/**/*.*' //any component/view files
+			sourcePath + '**/**/*.*',	 //any app files
+			sourcePath + 'app/**/**/*.js', //any component/view files
+			sourcePath + 'app/**/**/*.html'
 		],
 		reboot: [
 			'server/*.js',
@@ -145,13 +146,6 @@ gulp.task('watch', function() {
   //Watch for changes in app related files and inject new ones
 	watch(
 		config.inject.sources.app.js,
-		options,
-		injectFn
-	);
-
-  //Watch for changes in bower directories, when new bower is installed.
-	watch(
-		bowerFiles(),
 		options,
 		injectFn
 	);

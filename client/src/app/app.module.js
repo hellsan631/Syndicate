@@ -13,7 +13,8 @@
       'permission',
       'lbServices',
       'ls.LiveSet',
-      'ls.ChangeStream'
+      'ls.ChangeStream',
+      'random-words'
     ]);
 
 })();

@@ -50,12 +50,12 @@
         $localForage.getItem('currentUser')
           .then(function(res){
 
-            if (res) {
+            if (res && parseInt(res.isAdmin) === 1) {
               deferred.resolve();
             } else {
               deferred.reject();
             }
-
+            
           });
 
         return deferred.promise;

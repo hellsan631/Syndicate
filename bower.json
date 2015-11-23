@@ -29,6 +29,8 @@
     "angular-permission": "~1.1.1",
     "materialize": "~0.97.2",
     "angular-localforage": "~1.2.3",
-    "angular-live-set": "*"
+    "angular-live-set": "*",
+    "ng-file-upload": "~10.0.2",
+    "angular-random-words": "~0.1.0"
   }
 }
