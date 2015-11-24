@@ -34,8 +34,20 @@
             LoopBackAuth.clearStorage();
             $rootScope.currentUser = false;
             $state.go('login');
-          });
+          })
+          .catch(removeUser);
       }
+
+      function removeUser(){
+        LoopBackAuth.clearUser();
+        LoopBackAuth.clearStorage();
+        $rootScope.currentUser = false;
+        $localForage.removeItem('currentUser');
+
+        return $state.go('login');
+
+      }
+
 
     }
 

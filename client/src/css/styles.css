@@ -888,13 +888,12 @@ topic-item, post-item {
     max-height: none; }
   .delete-icon {
     right: 1px;
-    color: #333; } }
+    color: #455a64; } }
 
 @media only screen and (max-width: 600px) {
   .delete-icon {
     top: -6px;
-    right: -6px;
-    color: #666; }
+    right: -6px; }
     .delete-icon i {
       font-size: 1.3em; } }
 
@@ -936,6 +935,25 @@ topic-item, post-item {
 post-item .card .card-content .card-title {
   margin-top: -8px;
   display: block; }
+
+/* colors.scss */
+.prime-darken-5 {
+  background-color: #212121 !important; }
+
+.prime-darken-4 {
+  background-color: #303030 !important; }
+
+.prime-darken-3 {
+  background-color: #263238 !important; }
+
+.prime-darken-2 {
+  background-color: #424242 !important; }
+
+.prime-darken-1 {
+  background-color: #37474f !important; }
+
+.prime-darken-0 {
+  background-color: #455a64 !important; }
 
 [ng-click] {
   cursor: pointer; }

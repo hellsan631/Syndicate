@@ -3,17 +3,18 @@
     <div class="col s12 valign-wrapper white-text">
       <div class="col s1 xs3 valign">
         <a
-          id="wholething"
-          class="btn-floating btn-large waves-effect waves-light red darken-3 modal-trigger">
+          class="btn-floating btn-large waves-effect waves-light prime-darken-0 modal-trigger"
+          tooltipped
+          data-position="top" data-delay="150" data-tooltip="New Topic"
+          ng-click="vm.newTopicModal()">
 
           <i class="material-icons">add</i>
         </a>
       </div>
 
-      <div
-        id="whip"
-        class="col s11 xs9 valign no-margin forum-title">
-        <h2>Hello</h2>
+      <div class="col s11 xs9 valign no-margin forum-title" input-field>
+        <input style="font-size: 1.3em;" type="text" ng-model="vm.forumSearch">
+        <label>Forums</label>
       </div>
 
     </div>
@@ -21,7 +22,7 @@
 
   <div class="row" ng-class="vm.initialized ? 'initialized' : ''">
     <div class="col s12">
-      <div class="card-panel z-depth-0 grey darken-4 white-text">
+      <div class="card-panel z-depth-0 prime-darken-4 white-text">
         <div class="card-content">
           <div class="col s12 no-padding">
 

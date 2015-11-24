@@ -17,11 +17,11 @@
           <div class="card-content white-text">
             <span class="card-title">New User</span>
             <div input-field>
-              <input type="text" ng-model="vm.user.username" required length="60">
+              <input class="validate" type="text" ng-model="vm.user.username" pattern=".{3,}" length="60" required>
               <label>Username</label>
             </div>
             <div input-field>
-              <input type="email" ng-model="vm.user.email" required length="60">
+              <input class="validate" type="email" ng-model="vm.user.email" required>
               <label>Email</label>
             </div>
             <div input-field>
@@ -32,7 +32,7 @@
           <div class="card-action">
             <a ng-click="vm.clear()">Clear</a>
             <a ng-click="vm.password()">New Password</a>
-            <a ng-click="vm.submit()">Submit User</a>
+            <a ng-click="vm.submitNewUser()">Submit User</a>
           </div>
         </div>
       </div>

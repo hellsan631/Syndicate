@@ -6,11 +6,13 @@
     .controller('TopicController', TopicController);
 
   TopicController.$inject = [
-    '$rootScope', '$timeout', '$q',
+    '$scope', '$rootScope', '$timeout', '$q',
     '$stateParams', '$localForage',
     'createChangeStream', 'Topic', 'Post'];
 
-  function TopicController($rootScope, $timeout, $q, $stateParams, $localForage, createChangeStream, Topic, Post){
+  function TopicController($scope, $rootScope, $timeout, $q, $stateParams,
+    $localForage, createChangeStream, Topic, Post) {
+
     var _this = this;
     var _postModal = $('#NewPost');
 
@@ -31,6 +33,10 @@
 
       changes.on('data', function(msg) {
         getTopic(id);
+      });
+
+      $scope.$on('$destroy', function () {
+        src.close();
       });
     }
 

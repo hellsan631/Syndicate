@@ -5,9 +5,9 @@
     .module('app')
     .controller('ForumController', ForumController);
 
-  ForumController.$inject = ['$rootScope', '$timeout', '$q', 'createChangeStream', 'Topic', 'Post'];
+  ForumController.$inject = ['$scope', '$rootScope', '$timeout', '$q', 'createChangeStream', 'Topic', 'Post'];
 
-  function ForumController($rootScope, $timeout, $q, createChangeStream, Topic, Post){
+  function ForumController($scope, $rootScope, $timeout, $q, createChangeStream, Topic, Post){
     var _this = this;
     var _topicModal = $('#NewTopic');
 
@@ -30,6 +30,10 @@
         $timeout(function(){
           getTopics();
         }, 250);
+      });
+
+      $scope.$on('$destroy', function () {
+        src.close();
       });
     }
 
