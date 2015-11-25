@@ -402,6 +402,10 @@ textarea.materialize-textarea {
     margin-top: -3px;
     height: 25px; }
 
+.button-collapse {
+  padding-left: 10px;
+  cursor: pointer; }
+
 .input-field {
   position: relative;
   margin-top: 1rem; }
