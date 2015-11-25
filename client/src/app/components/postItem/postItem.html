@@ -1,6 +1,8 @@
 <div
   class="card hoverable white-text"
-  ng-class="post.member.id === topic.memberId ? 'prime-darken-3' : 'prime-darken-1'">
+  ng-class="post.member.id === topic.memberId ? 'prime-darken-3' : 'prime-darken-1'"
+  tooltipped
+  data-position="bottom" data-delay="150" data-tooltip="Click to Reply">
   <div class="card-content">
     <span class="card-title">
       <strong>@{{ post.member.username }}</strong>

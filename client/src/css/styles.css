@@ -393,6 +393,15 @@ textarea.materialize-textarea {
   position: relative;
   z-index: 10; }
 
+.collection .collection-item.waves-effect {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 10px; }
+  .collection .collection-item.waves-effect .secondary-content {
+    margin-bottom: -10px;
+    margin-top: -3px;
+    height: 25px; }
+
 .input-field {
   position: relative;
   margin-top: 1rem; }

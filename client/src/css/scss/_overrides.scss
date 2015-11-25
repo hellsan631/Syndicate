@@ -14,6 +14,19 @@ textarea.materialize-textarea {
   z-index:10;
 }
 
+.collection .collection-item.waves-effect {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 10px;
+
+  .secondary-content {
+    margin-bottom:-10px;
+    margin-top: -3px;
+    height:25px;
+  }
+
+}
+
 // Styling for input field wrapper
 .input-field {
   position: relative;

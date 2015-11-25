@@ -54,7 +54,13 @@
         "updateAttributes",
         "updateById"
       ]
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
     }
   ],
-  "methods": []
+  "methods": {}
 }
