@@ -54,24 +54,24 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="NewTopic" class="modal">
+<div id="NewTopic" class="modal prime-darken-2">
   <form name="submitTopic" ng-submit="vm.createNewTopic()">
     <div class="modal-content">
       <div class="row">
-        <div class="input-field col s12">
+        <div input-field class="col s12 white-text">
           <input id="title" type="text" ng-model="vm.topic.title" pattern=".{3,100}" class="validate" required>
           <label for="title">Title</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
+        <div input-field class="col s12">
           <textarea ng-model="vm.post.content" redactor></textarea>
         </div>
       </div>
     </div>
-    <div class="modal-footer">
-      <button class="waves-effect waves-green green lighten-4 btn-flat">New Topic</button>
-      <a class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+    <div class="modal-footer prime-darken-3">
+      <button class="waves-effect waves-green prime-darken-0 white-text btn-flat">New Topic</button>
+      <a class="modal-action modal-close waves-effect prime-darken-3 white-text waves-green btn-flat">Cancel</a>
     </div>
   </form>
 </div>

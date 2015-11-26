@@ -976,6 +976,9 @@ input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 50px #37474f inset,0 0 0 50px #37474f inset !important;
   -webkit-text-fill-color: #fff !important; }
 
+.side-nav li:hover, .side-nav li.active {
+  background-color: #37474f; }
+
 [ng-click] {
   cursor: pointer; }
 

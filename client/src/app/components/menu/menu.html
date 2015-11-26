@@ -20,15 +20,15 @@
           <a class="waves-effect waves-light" ng-click="logout()">Logout</a>
         </li>
       </ul>
-      <ul class="side-nav" id="mobile">
+      <ul class="side-nav prime-darken-5" id="mobile">
         <li>
-          <a ui-sref="forum" class="waves-effect waves-light">Forum</a>
+          <a ui-sref="forum" class="waves-effect waves-light white-text">Forum</a>
         </li>
         <li ng-if="user.isAdmin || user.isSuperAdmin">
-          <a ui-sref="admin" class="waves-effect waves-light">Admin</a>
+          <a ui-sref="admin" class="waves-effect waves-light white-text">Admin</a>
         </li>
         <li>
-          <a class="waves-effect waves-light" ng-click="logout()">Logout</a>
+          <a class="waves-effect waves-light white-text" ng-click="logout()">Logout</a>
         </li>
       </ul>
     </div>
