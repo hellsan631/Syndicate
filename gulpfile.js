@@ -10,6 +10,7 @@ var gulp        = require('gulp');
 var watch 			= require('gulp-watch');
 var plumber     = require('gulp-plumber');
 var notify      = require('gulp-notify');
+var changed 		= require('gulp-changed');
 
 // Run sass alongside burbon (fastest way of sass compiling)
 var sass        = require('gulp-sass');
@@ -198,7 +199,8 @@ gulp.task('inject', function () {
 gulp.task('sass', function(){
 
   return gulp.src(config.sass.source)
-		.pipe(sourcemaps.init())
+		.pipe(changed(config.sass.target))
+		//.pipe(sourcemaps.init())
 		.pipe(plumber(onError))
     .pipe(sass(
 			{ includePaths: ['styles'].concat(neat) }

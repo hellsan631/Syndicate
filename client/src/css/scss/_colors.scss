@@ -29,3 +29,12 @@ $primary-color-darken-5: #212121;
 .prime-darken-0 {
   background-color: #455a64 !important;
 }
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px #37474f inset !important;;
+    -webkit-text-fill-color: #fff;
+}
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px #37474f inset,0 0 0 50px #37474f inset !important;
+    -webkit-text-fill-color: #fff !important;
+}

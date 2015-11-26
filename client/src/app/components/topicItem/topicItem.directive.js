@@ -39,7 +39,10 @@
             closeOnCancel: true
           }, function(isConfirm){
             if (isConfirm) {
-              Topic.prototype$updateAttributes({id: $scope.topic.id},{deleted: true})
+              Topic.prototype$updateAttributes({id: $scope.topic.id},{
+                deleted: true,
+                lastUpdated: new Date()
+              })
                 .$promise
                 .then(function(topic){
                   swal("Deleted", "Successfully deleted topic", "success");

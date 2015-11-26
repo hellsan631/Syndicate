@@ -50,13 +50,24 @@
               <a class="secondary-content">
                 <i class="material-icons">edit</i>
                 <i
+                  ng-if="!member.banned"
                   class="material-icons"
                   tooltipped
                   data-position="left"
                   data-delay="150"
                   data-tooltip="Ban Member"
-                  ng-click="vm.deleteMember(member.id, $event)">
-                  not_interested
+                  ng-click="vm.banMember(member.id, $event)">
+                  lock
+                </i>
+                <i
+                  ng-if="member.banned"
+                  class="material-icons"
+                  tooltipped
+                  data-position="left"
+                  data-delay="150"
+                  data-tooltip="Un-Ban Member"
+                  ng-click="vm.unbanMember(member.id, $event)">
+                  lock_open
                 </i>
               </a>
             </div>
@@ -111,7 +122,7 @@
               </a>
             </div>
           </div>
-          <div ng-if="vm.editMember.id !== $root.currentUser.id" class="col s6 no-padding valign right-align">
+          <div ng-if="vm.editMember.id !== $root.currentUser.id && !vm.editMember.isSuperAdmin" class="col s6 no-padding valign right-align">
             <div class="valign prime-darken-3 white-text">
               Is Admin
             </div>

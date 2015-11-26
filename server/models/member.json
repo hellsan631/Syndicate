@@ -8,12 +8,20 @@
   },
   "properties": {
     "isAdmin": {
-      "type": "number",
-      "default": 0
+      "type": "boolean",
+      "default": false
+    },
+    "isSuperAdmin": {
+      "type": "boolean",
+      "default": false
+    },
+    "banned": {
+      "type": "boolean",
+      "default": false
     },
     "changedPass": {
-      "type": "number",
-      "default": 0
+      "type": "boolean",
+      "default": false
     },
     "createdOn": {
       "type": "date",

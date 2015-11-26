@@ -26,13 +26,18 @@
     function loginUser(loginFields){
       return Member.login(loginFields).$promise
         .then(function(response){
-          LoopBackAuth.currentUserId = response.userId;
-          LoopBackAuth.accessTokenId = response.id;
-          LoopBackAuth.save();
+          if (!response.user.banned) {
+            LoopBackAuth.currentUserId = response.userId;
+            LoopBackAuth.accessTokenId = response.id;
+            LoopBackAuth.save();
 
-          $rootScope.currentUser = response.user;
+            $rootScope.currentUser = response.user;
 
-          return $localForage.setItem('currentUser', response.user);
+            return $localForage.setItem('currentUser', response.user);
+          } else {
+            swal('Banned', 'You have been banned from this forum', 'error');
+            return Member.logout();
+          }
         });
     }
 

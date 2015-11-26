@@ -11,7 +11,7 @@
         <div class="col l3 m4 s12 truncate">
           {{ topic.title }}
         </div>
-        <div class="col l2 m4 s6 truncate">
+        <div class="col l2 m4 s6 truncate" ng-class="topic.member.banned ? 'strike-through' : ''">
           @{{ topic.member.username }}
         </div>
         <div

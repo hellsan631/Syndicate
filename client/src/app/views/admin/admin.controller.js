@@ -22,14 +22,15 @@
     };
     _this.members = [];
 
-    _this.password = password;
+    _this.password      = password;
     _this.submitNewUser = submitNewUser;
-    _this.getMembers = getMembers;
-    _this.deleteMember = deleteMember;
+    _this.getMembers    = getMembers;
+    _this.banMember     = banMember;
     _this.openEditModal = openEditModal;
-    _this.editPassword = editPassword;
-    _this.clearNewUser = clearNewUser;
-    _this.saveUser = saveUser;
+    _this.editPassword  = editPassword;
+    _this.clearNewUser  = clearNewUser;
+    _this.saveUser      = saveUser;
+    _this.unbanMember   = unbanMember;
 
     getMembers();
 
@@ -50,23 +51,19 @@
       if (confirm) {
         var editMember = {};
 
-        editMember.email = _this.editMember.email;
+        editMember.email    = _this.editMember.email;
         editMember.username = _this.editMember.username;
+        editMember.isAdmin  = _this.editMember.isAdmin;
 
         if (_this.editMember.password && _this.editMember.password.length > 6) {
           editMember.password = _this.editMember.password;
-        }
-
-        if (_this.editMember.isAdmin) {
-          editMember.isAdmin = 1;
-        } else {
-          editMember.isAdmin = 0;
         }
 
         Member.prototype$updateAttributes({id: _this.editMember.id}, editMember)
           .$promise
           .then(function(topic){
             swal('Saved', 'Successfully saved member', 'success');
+            getMembers();
             _memberModal.closeModal();
           })
           .catch(function(err){
@@ -86,7 +83,6 @@
 
     function openEditModal(member) {
       var editMember = member;
-      editMember.isAdmin = member.isAdmin === 1 || member.isAdmin === true ? true : false;
       editMember.password = '';
 
       _this.editMember = editMember;
@@ -94,9 +90,71 @@
       _memberModal.openModal();
     }
 
-    function deleteMember(memberId, event) {
-      event.stopPropagation();
-      console.log('ejllp');
+    function unbanMember(memberId, $event){
+      $event.stopPropagation();
+
+      swal({
+        title: 'Are you sure?',
+        type: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'Un-Ban',
+        cancelButtonText: 'Cancel',
+        closeOnConfirm: true,
+        closeOnCancel: true
+      }, function(confirm){
+        if(confirm) {
+          confirmUnBan(memberId);
+        }
+      });
+    }
+
+    function confirmUnBan(memberId) {
+      Member.prototype$updateAttributes({id: memberId}, {banned: false})
+        .$promise
+        .then(function(topic){
+          swal('Banned Lifted', 'Successfully unbanned member', 'success');
+          getMembers();
+          _memberModal.closeModal();
+        })
+        .catch(function(err){
+          swal('Error', 'Unable to un-ban member', 'error');
+          console.log(err);
+        });
+
+    }
+
+    function banMember(memberId, $event) {
+      $event.stopPropagation();
+
+      swal({
+        title: 'Are you sure?',
+        text: 'This will not remove a users posts/topics. It will only prevent them from logging in.',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ban',
+        confirmButtonColor: '#ff3B33',
+        cancelButtonText: 'Cancel',
+        closeOnConfirm: true,
+        closeOnCancel: true
+      }, function(confirm){
+        if(confirm){
+          confirmBan(memberId);
+        }
+      });
+    }
+
+    function confirmBan(memberId) {
+      Member.prototype$updateAttributes({id: memberId}, {banned: true})
+        .$promise
+        .then(function(topic){
+          swal('Banned', 'Successfully banned member', 'success');
+          getMembers();
+          _memberModal.closeModal();
+        })
+        .catch(function(err){
+          swal('Error', 'Unable to ban member', 'error');
+          console.log(err);
+        });
     }
 
     function getMembers() {

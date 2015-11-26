@@ -13,7 +13,7 @@
         <li>
           <a ui-sref="forum" class="waves-effect waves-light">Forum</a>
         </li>
-        <li ng-if="user.isAdmin === 1">
+        <li ng-if="user.isAdmin || user.isSuperAdmin">
           <a ui-sref="admin" class="waves-effect waves-light">Admin</a>
         </li>
         <li>
@@ -24,7 +24,7 @@
         <li>
           <a ui-sref="forum" class="waves-effect waves-light">Forum</a>
         </li>
-        <li ng-if="user.isAdmin === 1">
+        <li ng-if="user.isAdmin || user.isSuperAdmin">
           <a ui-sref="admin" class="waves-effect waves-light">Admin</a>
         </li>
         <li>
