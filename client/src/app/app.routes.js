@@ -34,8 +34,8 @@
         },
         data: {
           permissions: {
-            only: ['guest'],
-            redirectTo: 'forum'
+            except: ['syndicated'],
+            redirectTo: 'login'
           }
         }
       })
@@ -51,7 +51,7 @@
         },
         data: {
           permissions: {
-            except: ['member', 'admin'],
+            except: ['guest', 'member', 'admin'],
             redirectTo: 'forum'
           }
         }
@@ -86,7 +86,7 @@
         data: {
           permissions: {
             only: ['member', 'admin'],
-            redirectTo: 'login'
+            redirectTo: 'blog'
           }
         }
       })

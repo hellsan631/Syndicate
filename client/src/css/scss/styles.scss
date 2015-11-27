@@ -13,3 +13,32 @@
 .no-margin {
   margin: 0;
 }
+
+.blog-text p{
+  padding: 1em;
+}
+[ui-draggable] {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+[ui-draggable] {
+  display: inline-block;
+  cursor: move;
+  margin-right: 0.4em;
+  font-size: 1.3em;
+  font-weight: 300;
+}
+
+[ui-draggable].drag-over{
+  border:solid 1px red;
+}
+
+[ui-draggable].dragging{
+  opacity: 0.5;
+  z-index: 9999;
+  position: relative;
+}

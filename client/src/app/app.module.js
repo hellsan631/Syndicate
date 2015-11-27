@@ -14,7 +14,8 @@
       'lbServices',
       'ls.LiveSet',
       'ls.ChangeStream',
-      'random-words'
+      'random-words',
+      'ang-drag-drop'
     ]);
 
 })();

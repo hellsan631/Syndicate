@@ -20,8 +20,32 @@
 
             if (res) {
               deferred.reject();
+            }
+
+            return $localForage.getItem('syndicated');
+          })
+          .then(function(res){
+
+            if (res) {
+              deferred.reject();
             } else {
               deferred.resolve();
+            }
+
+          });
+
+        return deferred.promise;
+      })
+      .defineRole('syndicated', function () {
+        var deferred = $q.defer();
+
+        $localForage.getItem('syndicated')
+          .then(function(res){
+
+            if (res) {
+              deferred.resolve();
+            } else {
+              deferred.reject();
             }
 
           });

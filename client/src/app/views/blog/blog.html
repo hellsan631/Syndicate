@@ -1,137 +1,118 @@
-<div id="navbar" class="navbar-fixed scrollspy">
-  <nav class="grey darken-2">
+<div class="navbar-fixed" ui-on-Drop="vm.onDrop()" ng-cloak>
+  <nav class="prime-darken-5 white-text" role="navigation">
     <div class="nav-wrapper container">
-    	<div class="container"> <a href="index.html" class="brand-logo">Logo</a></div>
-
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-      <ul class="right hide-on-med-and-down">
-
-         <li><a href="index.html">Home</a></li>
-         <li><a href="aboutUs.html">About Us</a></li>
-         <li><a href="samplePost.html">Sample post</a></li>
-        <li><a href="contactUs.html">Contact Us</a></li>
-
-
-      </ul>
-      <ul class="right side-nav" id="mobile-demo">
-      	 <li><a href="index.html">Home</a></li>
-         <li><a href="aboutUs.html">About Us</a></li>
-         <li><a href="samplePost.html">Sample post</a></li>
-        <li><a href="contactUs.html">Contact Us</a></li>
-
+      <a id="logo-container" href="#" class="brand-logo">
+        {{ vm.dragged || 'Syndicate' }}
+      </a>
+      <ul class="right" ng-if="vm.dragged">
+        <li><a ng-click="vm.clear()">Clear</a></li>
       </ul>
     </div>
   </nav>
-  </div>
-
-  <div id="index-banner" class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container valign">
-        <br><br>
-        <h1 class="header center grey-text text-darken-2">Google’s Material Design – A new Design Language</h1>
-        <div class="row center">
-          <h5 class="header col s12 light grey-text text-darken-2">To establish a unified experience across its platforms</h5>
-           <p class="post-meta"><i style="color: #616161" class="fa fa-clock-o"></i> 7 days ago by <a href="#" style="color: #616161">Author name</a></p>
-        </div>
-        <div class="row center">
-          <a href="#startPosts" class="btn-floating btn-large waves-effect waves-light grey darken-2 head-link"><i class="fa fa-angle-double-down"></i></a>
-        </div>
-        <br><br>
-
-      </div>
-    </div>
-    <div class="parallax"><img src="images/post.jpg" alt="Unsplashed background img 2"></div>
-  </div>
-
-<div class="container" id="startPosts">
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="row">
-		<div class="col s12 m10 offset-m1 l9 offset-l1">
-
-			<p>Google’s Material Design language focuses on simplicity in design and use of bold colors and Typography. With Material Design guidelines, Google aims to establish a unified experience across its platforms and wide variety of devices.
-				</p>
-
-				<p>View the detailed information and documentation regarding Material Design at its <a style="color:#26a69a;" href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank"><strong>official website
-					</strong></a> which provides guidelines on design and interaction fundamentals such as animation, color, typography, layout principles and structure, components and essential patterns.
-					</p>
-
-				<p>Material design enables app developers to switch android app themes to the new Material Theme along with new widgets and animations. Check this <a style="color:#26a69a;" href="http://developer.android.com/design/material/index.html" target="_blank">
-					link</a> for details.
-					</p>
-			<p>Have a look at the <strong>Material Design </strong>Introductory video below which illustrates how Google’s own android apps adapt with this new design guideline. Also take a look at <a style="color:#26a69a;" href="http://www.google.com/design/spec/style/color.html#color-ui-color-palette" target="_blank">
-				<strong>UI Color Palette</strong></a> and
-				<a style="color:#26a69a;" href="http://www.google.com/design/spec/components/bottom-sheets.html#bottom-sheets-content" target="_blank">
-				<strong>Components</strong></a></p>
-
-
-
-		</div>
-	</div>
 </div>
 
-  <footer class="page-footer grey darken-2">
-    <div class="container">
-            <div class="row">
-              <div class="col s12 l4 m10">
-                <h5 class="white-text">Follow "BlogName"</h5>
-                <p class="white-text">Get every new post delivered to your inbox.</p>
-			     <form>
+<div class="section no-pad-bot white-text" id="index-banner">
+  <div class="container">
+    <br><br>
+    <div class="row center">
+      <h5 class="header col s6 m4 offset-m4 offset-s3">
+        <img src="./images/0.png" class="center responsive-img">
+      </h5>
+    </div>
+    <div class="row center">
+      <h5 class="header col s12 light">Wonderland</h5>
+    </div>
+    <br><br>
 
-			      <div class="input-field">
-			        <i class="mdi-communication-email prefix"></i>
-			        <input id="icon_prefix" type="email" class="validate">
-			        <label for="icon_prefix">Email</label>
-			      </div>
-
-			     </form>
-
-			    <a class="waves-effect waves-light btn">Sign Up
-                    <i class="fa fa-sign-in right"></i></a>
-       </div><!--col-->
+  </div>
+</div>
 
 
-              <div id="categories" class="col l3 offset-l1 s12 m8">
-                <h5 class="white-text">Categories</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Category1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Category2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Category3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Category4</a></li>
-                </ul>
-              </div><!--col-->
+<div class="container">
+  <div class="section white-text">
 
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 blog-text">
+        <p>
+          <span
+            ng-repeat="word in vm.paragraphs[0] track by $index"
+            ui-draggable="true" drag="word"
+            on-drop-success="vm.dropSuccessHandler($event,$index,word)">
+            {{word}}
+          </span>
+        </p>
 
+        <p>
+          <span
+            ng-repeat="word in vm.paragraphs[1] track by $index"
+            ui-draggable="true" drag="word"
+            on-drop-success="vm.dropSuccessHandler($event,$index,word)">
+            {{word}}
+          </span>
+        </p>
 
-              <div class="col l3 s12 m8">
-                <h5 class="white-text">Archives</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">March 2015</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">April 2015</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">May 2015</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">June 2015</a></li>
-                </ul>
-              </div><!--col-->
+        <p>
+          <span
+            ng-repeat="word in vm.paragraphs[2] track by $index"
+            ui-draggable="true" drag="word"
+            on-drop-success="vm.dropSuccessHandler($event,$index,word)">
+            {{word}}
+          </span>
+        </p>
 
-            </div><!--row-->
+        <p>
+          <span
+            ng-repeat="word in vm.paragraphs[3] track by $index"
+            ui-draggable="true" drag="word"
+            on-drop-success="vm.dropSuccessHandler($event,$index,word)">
+            {{word}}
+          </span>
+        </p>
 
-            <div class="row">
-            	<div class="col s12 l3 offset-l5">
+        <p>
+          <span
+            ng-repeat="word in vm.paragraphs[4] track by $index"
+            ui-draggable="true" drag="word"
+            on-drop-success="vm.dropSuccessHandler($event,$index,word)">
+            {{word}}
+          </span>
+        </p>
 
+        <p>
+          <span
+            ng-repeat="word in vm.paragraphs[5] track by $index"
+            ui-draggable="true" drag="word"
+            on-drop-success="vm.dropSuccessHandler($event,$index,word)">
+            {{word}}
+          </span>
+        </p>
 
-            	<a href="#"><i style="font-size: 38px;" class="fa fa-facebook-square"></i></a> &nbsp;&nbsp;&nbsp;
-            	<a href="#"><i style="font-size: 38px;" class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;&nbsp;
-            	<a href="#"><i style="font-size: 38px;" class="fa fa-google-plus-square"></i></a>
-            	</div>
-
-            </div><!--row-->
-          </div><!--conatiner-->
-    <div class="footer-copyright">
-      <div class="container">
-       <p>Copyright © Your website name</p>
-       <br>
       </div>
     </div>
-  </footer>
+
+  </div>
+  <br><br>
+</div>
+
+<footer class="page-footer prime-darken-3">
+  <div class="container">
+    <div class="row">
+      <div class="col s8 m6">
+        <h5 class="white-text">Company Bio</h5>
+        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+      </div>
+      <div class="col s4 m6">
+        <h5 class="white-text">Settings</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

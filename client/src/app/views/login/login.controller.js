@@ -9,9 +9,7 @@
 
   function LoginController($rootScope, $state, $localForage, LoopBackAuth, Member){
     var _this = this;
-
-    addLoginJquery();
-
+    
     this.login = {};
 
     this.submitLogin = submitLogin;
