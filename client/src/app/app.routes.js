@@ -34,7 +34,7 @@
         },
         data: {
           permissions: {
-            except: ['syndicated'],
+            except: ['syndicated', 'member', 'admin'],
             redirectTo: 'login'
           }
         }
