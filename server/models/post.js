@@ -9,8 +9,6 @@ module.exports = function(Post) {
 
   if(ctx.instance)
     instance = 'instance';
-  else if(ctx.currentInstance)
-    instance = 'currentInstance';
   else
     instance = 'data';
 

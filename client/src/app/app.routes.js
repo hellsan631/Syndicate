@@ -85,7 +85,7 @@
         },
         data: {
           permissions: {
-            only: ['member', 'admin'],
+            only: ['member'],
             redirectTo: 'blog'
           }
         }
@@ -102,13 +102,10 @@
         },
         data: {
           permissions: {
-            only: ['member', 'admin'],
+            only: ['member'],
             redirectTo: 'login'
           }
         }
       });
-
-
   }
-
 })();

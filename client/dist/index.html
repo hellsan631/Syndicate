@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="AppController as main">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Syndicate</title>
+
+  <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- bower:css -->
+  <link rel="stylesheet" href="css/vendor.min.css">
+  <!-- endinject -->
+
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/app.min.css">
+  <!-- endinject -->
+</head>
+<body class="prime-darken-4">
+
+  <top-menu user="$root.currentUser"></top-menu>
+
+  <ui-view name="main"></ui-view>
+
+  <!-- bower:js -->
+  <script src="app/vendor.min.js"></script>
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <script src="app/app.min.js"></script>
+  <!-- endinject -->
+</body>
+</html>

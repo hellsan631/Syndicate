@@ -43,33 +43,13 @@
     }
 
     function filterNewResults(results) {
-      results.forEach(function(result){
-        var dupe = false;
-
-        if (_this.topics.length > 0){
-          _this.topics.forEach(function(topic, index){
-            if (result.id === topic.id) {
-              dupe = true;
-
-              if (unixTime(result.lastUpdated) !== unixTime(topic.lastUpdated)) {
-                _this.topics[index] = result;
-              }
-            }
-          });
-        }
-
-        if (!dupe) {
-          _this.topics.push(result);
-        }
-
-      });
+      _this.topics = results;
 
       if(!_this.initialized) {
         $timeout(function(){
           _this.initialized = true;
         }, 100);
       }
-
     }
 
     function unixTime(date) {

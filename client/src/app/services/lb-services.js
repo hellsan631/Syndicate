@@ -985,6 +985,12 @@ module.factory(
           method: "POST"
         },
 
+        // INTERNAL. Use Post.member() instead.
+        "::get::Post::member": {
+          url: urlBase + "/Posts/:id/member",
+          method: "GET"
+        },
+
         // INTERNAL. Use Topic.member() instead.
         "::get::Topic::member": {
           url: urlBase + "/Topics/:id/member",
@@ -1843,9 +1849,21 @@ module.factory(
       { 'id': '@id' },
       {
 
+        // INTERNAL. Use Post.member() instead.
+        "prototype$__get__member": {
+          url: urlBase + "/Posts/:id/member",
+          method: "GET"
+        },
+
         // INTERNAL. Use Post.topic() instead.
         "prototype$__get__topic": {
           url: urlBase + "/Posts/:id/topic",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Post.original() instead.
+        "prototype$__get__original": {
+          url: urlBase + "/Posts/:id/original",
           method: "GET"
         },
 
@@ -2330,6 +2348,37 @@ module.factory(
           method: "GET"
         },
 
+        // INTERNAL. Use Topic.original() instead.
+        "::get::Topic::original": {
+          url: urlBase + "/Topics/:id/original",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Topic.original.create() instead.
+        "::create::Topic::original": {
+          url: urlBase + "/Topics/:id/original",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Topic.original.createMany() instead.
+        "::createMany::Topic::original": {
+          isArray: true,
+          url: urlBase + "/Topics/:id/original",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Topic.original.update() instead.
+        "::update::Topic::original": {
+          url: urlBase + "/Topics/:id/original",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Topic.original.destroy() instead.
+        "::destroy::Topic::original": {
+          url: urlBase + "/Topics/:id/original",
+          method: "DELETE"
+        },
+
         // INTERNAL. Use Topic.posts.findById() instead.
         "::findById::Topic::posts": {
           params: {
@@ -2533,6 +2582,42 @@ module.factory(
 
         /**
          * @ngdoc method
+         * @name lbServices.Post#member
+         * @methodOf lbServices.Post
+         *
+         * @description
+         *
+         * Fetches belongsTo relation member.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Member` object.)
+         * </em>
+         */
+        R.member = function() {
+          var TargetResource = $injector.get("Member");
+          var action = TargetResource["::get::Post::member"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
          * @name lbServices.Post#topic
          * @methodOf lbServices.Post
          *
@@ -2567,6 +2652,42 @@ module.factory(
           return action.apply(R, arguments);
         };
 
+        /**
+         * @ngdoc method
+         * @name lbServices.Post#original
+         * @methodOf lbServices.Post
+         *
+         * @description
+         *
+         * Fetches belongsTo relation original.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Topic` object.)
+         * </em>
+         */
+        R.original = function() {
+          var TargetResource = $injector.get("Topic");
+          var action = TargetResource["::get::Post::original"];
+          return action.apply(R, arguments);
+        };
+
     return R;
   }]);
 
@@ -2594,6 +2715,30 @@ module.factory(
       urlBase + "/Topics/:id",
       { 'id': '@id' },
       {
+
+        // INTERNAL. Use Topic.original() instead.
+        "prototype$__get__original": {
+          url: urlBase + "/Topics/:id/original",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Topic.original.create() instead.
+        "prototype$__create__original": {
+          url: urlBase + "/Topics/:id/original",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Topic.original.update() instead.
+        "prototype$__update__original": {
+          url: urlBase + "/Topics/:id/original",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Topic.original.destroy() instead.
+        "prototype$__destroy__original": {
+          url: urlBase + "/Topics/:id/original",
+          method: "DELETE"
+        },
 
         // INTERNAL. Use Topic.member() instead.
         "prototype$__get__member": {
@@ -3139,6 +3284,12 @@ module.factory(
           url: urlBase + "/Posts/:id/topic",
           method: "GET"
         },
+
+        // INTERNAL. Use Post.original() instead.
+        "::get::Post::original": {
+          url: urlBase + "/Posts/:id/original",
+          method: "GET"
+        },
       }
     );
 
@@ -3281,6 +3432,201 @@ module.factory(
     */
     R.modelName = "Topic";
 
+    /**
+     * @ngdoc object
+     * @name lbServices.Topic.original
+     * @header lbServices.Topic.original
+     * @object
+     * @description
+     *
+     * The object `Topic.original` groups methods
+     * manipulating `Post` instances related to `Topic`.
+     *
+     * Call {@link lbServices.Topic#original Topic.original()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Topic#original
+         * @methodOf lbServices.Topic
+         *
+         * @description
+         *
+         * Fetches hasOne relation original.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Post` object.)
+         * </em>
+         */
+        R.original = function() {
+          var TargetResource = $injector.get("Post");
+          var action = TargetResource["::get::Topic::original"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Topic.original#create
+         * @methodOf lbServices.Topic.original
+         *
+         * @description
+         *
+         * Creates a new instance in original of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Post` object.)
+         * </em>
+         */
+        R.original.create = function() {
+          var TargetResource = $injector.get("Post");
+          var action = TargetResource["::create::Topic::original"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Topic.original#createMany
+         * @methodOf lbServices.Topic.original
+         *
+         * @description
+         *
+         * Creates a new instance in original of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Post` object.)
+         * </em>
+         */
+        R.original.createMany = function() {
+          var TargetResource = $injector.get("Post");
+          var action = TargetResource["::createMany::Topic::original"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Topic.original#destroy
+         * @methodOf lbServices.Topic.original
+         *
+         * @description
+         *
+         * Deletes original of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.original.destroy = function() {
+          var TargetResource = $injector.get("Post");
+          var action = TargetResource["::destroy::Topic::original"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Topic.original#update
+         * @methodOf lbServices.Topic.original
+         *
+         * @description
+         *
+         * Update original of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Post` object.)
+         * </em>
+         */
+        R.original.update = function() {
+          var TargetResource = $injector.get("Post");
+          var action = TargetResource["::update::Topic::original"];
+          return action.apply(R, arguments);
+        };
 
         /**
          * @ngdoc method
