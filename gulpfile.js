@@ -180,9 +180,9 @@ var bowerCSS = bowerFiles({
 });
 
 gulp.task('build', ['build:inject', 'build:images'], function() {
-	return gulp.src(build.html)
-		.pipe(cachebust(cacheOpts))
-		.pipe(gulp.dest(dest.htmlPath));
+	return gulp.src(destIndex)
+		.pipe(cachebust())
+		.pipe(gulp.dest(destPath));
 });
 
 gulp.task('build:inject', ['move:index','build:js', 'build:css'], function(){
