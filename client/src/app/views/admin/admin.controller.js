@@ -52,7 +52,6 @@
         var editMember = {};
 
         editMember.email    = _this.editMember.email;
-        editMember.username = _this.editMember.username;
         editMember.isAdmin  = _this.editMember.isAdmin;
 
         if (_this.editMember.password && _this.editMember.password.length > 6) {
@@ -159,33 +158,9 @@
 
     function getMembers() {
       Member.find().$promise
-        .then(filterNewResults);
-    }
-
-    function filterNewResults(results) {
-      results.forEach(function(result){
-        var dupe = false;
-
-        if (_this.members.length > 0){
-          _this.members.forEach(function(member){
-            if (result.id === member.id) {
-              dupe = true;
-            }
-          });
-        }
-
-        if (!dupe) {
-          _this.members.push(result);
-        }
-
-      });
-
-      if(!_this.initialized) {
-        $timeout(function(){
-          _this.initialized = true;
-        }, 100);
-      }
-
+        .then(function(res){
+          _this.members = res;
+        });
     }
 
     function editPassword() {
@@ -208,7 +183,7 @@
 
       setTimeout(function() {
 
-        swal('Success!', 'Successfully created '+res.username, 'success');
+        swal('Success!', 'Successfully created '+res.id, 'success');
 
         deferred.resolve(res);
 
@@ -226,9 +201,7 @@
 
       setTimeout(function() {
 
-        if (!user.username) {
-          deferred.reject('New users require a username');
-        } else if (!user.email) {
+        if (!user.email) {
           deferred.reject('Users require an email');
         } else {
           deferred.resolve(user);

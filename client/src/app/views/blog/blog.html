@@ -1,8 +1,8 @@
-<div class="navbar-fixed" ui-on-Drop="vm.onDrop()" ng-cloak>
-  <nav class="prime-darken-5 white-text" role="navigation">
+<div class="navbar-fixed" ng-cloak>
+  <nav class="prime-darken-5 white-text" ui-on-Drop="vm.onDrop($event, $data)" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">
-        {{ vm.dragged || 'Syndicate' }}
+        {{ vm.dragged || 'Down the Rabbit Hole' }}
       </a>
       <ul class="right" ng-if="vm.dragged">
         <li><a ng-click="vm.clear()">Clear</a></li>
@@ -34,60 +34,13 @@
     <!--   Icon Section   -->
     <div class="row">
       <div class="col s12 blog-text">
-        <p>
+        <p ng-repeat="paragraph in vm.paragraphs">
           <span
-            ng-repeat="word in vm.paragraphs[0] track by $index"
-            ui-draggable="true" drag="word"
-            on-drop-success="vm.dropSuccessHandler($event,$index,word)">
-            {{word}}
+            ng-repeat="word in paragraph track by $index"
+            ui-draggable="true" drag="word">
+            {{:: word}}
           </span>
         </p>
-
-        <p>
-          <span
-            ng-repeat="word in vm.paragraphs[1] track by $index"
-            ui-draggable="true" drag="word"
-            on-drop-success="vm.dropSuccessHandler($event,$index,word)">
-            {{word}}
-          </span>
-        </p>
-
-        <p>
-          <span
-            ng-repeat="word in vm.paragraphs[2] track by $index"
-            ui-draggable="true" drag="word"
-            on-drop-success="vm.dropSuccessHandler($event,$index,word)">
-            {{word}}
-          </span>
-        </p>
-
-        <p>
-          <span
-            ng-repeat="word in vm.paragraphs[3] track by $index"
-            ui-draggable="true" drag="word"
-            on-drop-success="vm.dropSuccessHandler($event,$index,word)">
-            {{word}}
-          </span>
-        </p>
-
-        <p>
-          <span
-            ng-repeat="word in vm.paragraphs[4] track by $index"
-            ui-draggable="true" drag="word"
-            on-drop-success="vm.dropSuccessHandler($event,$index,word)">
-            {{word}}
-          </span>
-        </p>
-
-        <p>
-          <span
-            ng-repeat="word in vm.paragraphs[5] track by $index"
-            ui-draggable="true" drag="word"
-            on-drop-success="vm.dropSuccessHandler($event,$index,word)">
-            {{word}}
-          </span>
-        </p>
-
       </div>
     </div>
 

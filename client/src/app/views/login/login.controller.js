@@ -9,7 +9,7 @@
 
   function LoginController($rootScope, $state, $localForage, LoopBackAuth, Member){
     var _this = this;
-    
+
     this.login = {};
 
     this.submitLogin = submitLogin;
@@ -24,6 +24,12 @@
     function loginUser(loginFields){
       return Member.login(loginFields).$promise
         .then(function(response){
+
+          if (response.user.id !== loginFields.id){
+            swal('Invalid ID', 'Your ID is not valid', 'error');
+            return Member.logout();
+          }
+
           if (!response.user.banned) {
             LoopBackAuth.currentUserId = response.userId;
             LoopBackAuth.accessTokenId = response.id;

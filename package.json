@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "pretest": "jshint .",
-    "start": "gulp"
+    "pretest": "jshint ."
   },
   "dependencies": {
     "bluebird": "^3.0.5",

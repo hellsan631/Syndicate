@@ -17,8 +17,7 @@
           <div class="card-content">
             <span class="card-title">New User</span>
             <div input-field>
-              <input class="validate" type="text" ng-model="vm.user.username" pattern=".{3,}" length="60" required>
-              <label>Username</label>
+              <input class="validate" disabled value="ID Generated On User Creation" type="text" pattern=".{24,24}">
             </div>
             <div input-field>
               <input class="validate" type="email" ng-model="vm.user.email" required>
@@ -43,14 +42,14 @@
       <div id="test2">
         <ul class="collection with-header">
           <li class="collection-item waves-effect"
-            ng-repeat="member in vm.members"
+            ng-repeat="member in vm.members track by member.id"
             ng-click="vm.openEditModal(member)">
             <div ng-if="member.id !== $root.currentUser.id">
-              {{ member.username }} - <small>{{ member.email }}</small>
+              {{ member.id }} - <small>{{ member.email }}</small>
               <a class="secondary-content">
                 <i class="material-icons">edit</i>
                 <i
-                  ng-if="!member.banned"
+                  ng-if="!member.banned && !member.isSuperAdmin"
                   class="material-icons"
                   tooltipped
                   data-position="left"
@@ -72,7 +71,7 @@
               </a>
             </div>
             <div ng-if="member.id === $root.currentUser.id">
-              {{ member.username }} (You)
+              {{ member.id }} (You)
               <a class="secondary-content">
                 <i class="material-icons">edit</i>
               </a>
@@ -92,8 +91,8 @@
     <div class="modal-content">
       <div class="row">
         <div input-field>
-          <input class="validate" type="text" ng-model="vm.editMember.username" pattern=".{3,}" length="60" required>
-          <label>Username</label>
+          <input type="text" class="grey-text" disabled ng-model="vm.editMember.id">
+          <label>Id</label>
         </div>
         <div input-field>
           <input class="validate" type="email" ng-model="vm.editMember.email" required>
