@@ -45,7 +45,7 @@
     </div>
 
     <div class="col s12"
-      ng-repeat="topic in vm.topics | orderBy: '-lastUpdated' track by topic.id | filter: vm.forumSearch">
+      ng-repeat="topic in vm.topics | orderBy: '-lastUpdated' | filter: vm.forumSearch track by topic.id">
 
       <topic-item topic="topic" user="$root.currentUser" ></topic-item>
     </div>

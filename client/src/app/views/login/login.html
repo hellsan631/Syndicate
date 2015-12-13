@@ -6,6 +6,10 @@
           <div class="card-content white-text">
             <span class="card-title">Hello, Friend</span>
             <div input-field>
+              <input name="id" class="validate" pattern=".{24,24}" type="text" ng-model="vm.login.id" required>
+              <label>Id</label>
+            </div>
+            <div input-field>
               <input name="email" class="validate" type="email" ng-model="vm.login.email" required>
               <label>Email</label>
             </div>
