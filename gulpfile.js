@@ -313,6 +313,12 @@ gulp.task('watch', function() {
 		injectFn
 	);
 
+	//Watch for changes in app related files and inject new ones
+	watch(
+		'bower.json',
+		injectFn
+	);
+
 });
 
 //Run node server alongside gulp watch tasks
@@ -367,6 +373,6 @@ gulp.task('sass', function(){
     .pipe(sass(
 			{ includePaths: ['styles'].concat(neat) }
 		))
-		.pipe(sourcemaps.write('.'))
+		//.pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(config.sass.target));
 });

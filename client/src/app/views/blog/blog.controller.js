@@ -11,7 +11,6 @@
 
     var _this = this;
 
-    _this.dropSuccessHandler = dropSuccessHandler;
     _this.onDrop = onDrop;
     _this.clear = clear;
     _this.paragraphs = [
@@ -33,11 +32,7 @@
       _this.dragged = false;
     }
 
-    function onDrop(){
-
-    }
-
-    function dropSuccessHandler($event, $index, $data){
+    function onDrop($event, $data){
       if(!_this.dragged){
         _this.dragged = '';
       }
@@ -49,9 +44,6 @@
 
     function check() {
       var compare = _this.dragged.toLowerCase();
-
-      console.log(compare);
-      console.log(compare === 'syn');
 
       if(compare === 'syn') {
         $localForage.setItem('syndicated', true)

@@ -5,7 +5,7 @@
   },
   "models": {
     "ManagerHost": {
-      "0b24291d-4298-4fd2-bfc2-36d41d26e9e4": "{\"id\":\"0b24291d-4298-4fd2-bfc2-36d41d26e9e4\",\"host\":\"178.62.121.159\",\"port\":8701,\"actions\":[\"delete\",\"edit\",\"env-set\",\"env-get\"],\"protocol\":\"http\",\"created\":1449466747990,\"error\":null,\"errorType\":null,\"app\":null,\"processes\":{\"pids\":[]},\"$$hashKey\":\"object:163\",\"isHostProblem\":true}"
+      "0b24291d-4298-4fd2-bfc2-36d41d26e9e4": "{\"id\":\"0b24291d-4298-4fd2-bfc2-36d41d26e9e4\",\"host\":\"178.62.121.159\",\"port\":8701,\"actions\":[\"delete\",\"edit\",\"env-set\",\"env-get\",\"stop\",\"restart\",\"cluster-restart\",\"license-push\"],\"protocol\":\"http\",\"created\":1449466747990,\"error\":null,\"errorType\":null,\"app\":{\"name\":\"Syndicate\",\"version\":null,\"port\":3001},\"processes\":{\"pids\":[{\"parentPid\":3298,\"pid\":3303,\"workerId\":1,\"listeningSockets\":[{\"addressType\":4,\"address\":\"0.0.0.0\",\"port\":3001}],\"isTrackingObjects\":false,\"isProfiling\":false,\"isTracing\":false,\"debugger\":{\"running\":false,\"port\":null},\"watchdogTimeout\":0,\"watchdogStallout\":0,\"isSnapshotting\":false,\"startTime\":\"2015-12-07T05:50:06.238Z\",\"stopTime\":null,\"stopReason\":\"\",\"id\":3,\"serviceInstanceId\":1},{\"parentPid\":829,\"pid\":3298,\"workerId\":0,\"listeningSockets\":[],\"isTrackingObjects\":false,\"isProfiling\":false,\"isTracing\":false,\"debugger\":{\"running\":false,\"port\":null},\"watchdogTimeout\":0,\"watchdogStallout\":0,\"isSnapshotting\":false,\"startTime\":\"2015-12-07T05:50:05.932Z\",\"stopTime\":null,\"stopReason\":\"\",\"id\":4,\"serviceInstanceId\":1}]},\"$$hashKey\":\"object:163\",\"isHostProblem\":true}"
     },
     "LoadBalancer": {}
   }
