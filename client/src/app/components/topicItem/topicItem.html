@@ -12,7 +12,7 @@
           {{ topic.title }}
         </div>
         <div class="col l2 m4 s6 truncate" ng-class="topic.member.banned ? 'strike-through' : ''">
-          @{{ topic.member.username }}
+          @{{ topic.member.id }}
         </div>
         <div
           class="col l4 hide-on-med-and-down truncate"
@@ -48,7 +48,7 @@
         {{topic.title}}
       </div>
       <div class="col l6 m4 s6 truncate strike-through">
-        @{{ topic.member.username }}
+        @{{ topic.member.id }}
       </div>
       <div class="col m3 s6 right-align truncate strike-through">
         <span am-time-ago="topic.lastUpdated"></span>
