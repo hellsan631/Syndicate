@@ -45,7 +45,7 @@
             ng-repeat="member in vm.members track by member.id"
             ng-click="vm.openEditModal(member)">
             <div ng-if="member.id !== $root.currentUser.id">
-              {{ member.username }} - <small>{{ member.email }}</small>
+              {{ member.username | numberLength:3 }} - <small>{{ member.email }}</small>
               <a class="secondary-content">
                 <i class="material-icons">edit</i>
                 <i
@@ -71,7 +71,7 @@
               </a>
             </div>
             <div ng-if="member.id === $root.currentUser.id">
-              {{ member.username }} (You)
+              {{ member.username | numberLength:3 }} (You)
               <a class="secondary-content">
                 <i class="material-icons">edit</i>
               </a>
@@ -91,7 +91,7 @@
     <div class="modal-content">
       <div class="row">
         <div input-field>
-          <input type="text" class="grey-text" disabled ng-model="vm.editMember.username">
+          <input type="text" class="grey-text" disabled value="{{vm.editMember.username | numberLength:3}}">
           <label>Id</label>
         </div>
         <div input-field>
