@@ -5,7 +5,7 @@
   data-position="bottom" data-delay="150" data-tooltip="Click to Reply">
   <div class="card-content">
     <span class="card-title">
-      <strong ng-class="post.member.banned ? 'strike-through' : ''">@{{ post.member.username }}</strong>
+      <strong ng-class="post.member.banned ? 'strike-through' : ''">@{{ post.member.username | numberLength:3 }}</strong>
       <small class="right small" am-time-ago="post.createdOn"></small>
     </span>
     <div class="flow-text" ng-bind-html="post.content | trust"></div>
