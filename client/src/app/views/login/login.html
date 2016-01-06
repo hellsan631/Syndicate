@@ -1,12 +1,15 @@
 <div class="full-screen">
-  <div class="row vertical-align">
+  <div class="row vertical-align" style="padding-bottom:15%;">
+    <div class="col s6 offset-s3 m4 offset-m4 l2 offset-l5">
+      <img src="images/rabbit.png" alt="Down The Rabbit Hole" class="responsive-img">
+    </div>
     <div class="col s12 m6 offset-m3 l4 offset-l4">
       <div class="card prime-darken-1">
         <form name="syndicate" ng-submit="vm.submitLogin()">
           <div class="card-content white-text">
             <span class="card-title">Hello, Friend</span>
             <div input-field>
-              <input name="id" class="validate" pattern=".{24,24}" type="text" ng-model="vm.login.id" required>
+              <input name="id" class="validate" pattern=".{3,3}" type="text" ng-model="vm.login.username" required>
               <label>Id</label>
             </div>
             <div input-field>

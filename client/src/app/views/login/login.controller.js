@@ -25,7 +25,7 @@
       return Member.login(loginFields).$promise
         .then(function(response){
 
-          if (response.user.id !== loginFields.id){
+          if (response.user.username !== loginFields.username){
             swal('Invalid ID', 'Your ID is not valid', 'error');
             return Member.logout();
           }

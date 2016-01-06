@@ -26,6 +26,9 @@
     "createdOn": {
       "type": "date",
       "defaultFn": "now"
+    },
+    "username": {
+      "type": "number"
     }
   },
   "validations": [],
